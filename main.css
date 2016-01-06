@@ -172,6 +172,8 @@ hr
 {
 	font-family: displayFont,customFont, Helvetica,Arial,sans-serif;
 	font-size: 72px;
+	font-style: normal;
+	
 }
 /* ************************************************************************************************************************************************************************************** */
 
@@ -274,7 +276,7 @@ hr
 
 .regImage
 {
-	width: 200px;
+	width: auto;
 	height: 200px;
 	
 	padding: 0px;
