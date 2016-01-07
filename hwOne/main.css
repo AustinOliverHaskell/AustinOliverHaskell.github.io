@@ -16,3 +16,12 @@ body #selfie
   margin: auto;
   top: 0; left: 0; bottom: 0; right: 0;
 }
+body hr
+{
+    height: 2px;
+    background-color:#DDDDDD;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 98%;
+
+}
