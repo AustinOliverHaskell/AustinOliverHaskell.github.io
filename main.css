@@ -22,6 +22,10 @@ body a:hover
 {
 	background-color: #FFFFFF;
 }
+.notWhite
+{
+	color: #DDDDDD;
+}
 .customFont
 {
 	font-family: "customHeader";
