@@ -22,7 +22,28 @@ body a:hover
 {
 	background-color: #FFFFFF;
 }
+.customFont
+{
+	font-family: "customHeader";
+	font-size: 20px;
+}
+.otherCustom
+{
+	font-family: "customHeader";
+	font-size: 24px;
+}
 
+
+@font-face
+{
+	font-family: customHeader;
+	src: url("head.ttf");
+}
+.whiteWell
+{
+	background-color: #FFFFFF;
+	background: #FFFFFF;
+}
 /* ************************************************************************************************************************************************************************************** */
 
 
