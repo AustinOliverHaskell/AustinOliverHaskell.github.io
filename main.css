@@ -1,7 +1,7 @@
 /* ************************************************************************************************************************************************************************************** */
 body
 {
-	background-color: #FFFFFF;
+	background-image: url("dude.png");
 }
 body a.noDec ,a.noDec:hover
 {
@@ -18,6 +18,11 @@ body a:hover
 	color: #666666;
 	text-decoration: none;
 }
+.noTea
+{
+	background-color: #FFFFFF;
+}
+
 /* ************************************************************************************************************************************************************************************** */
 
 
@@ -35,21 +40,25 @@ body a:hover
 /* title */
 .navbar-default .navbar-brand {
     color: #DDDDDD;
+	background-color: #FFFFFF;
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
     color: #FFFFFF;
 	text-decoration: none;
+	background-color: #FFFFFF;
 }
 /* link */
 .navbar-default .navbar-nav > li > a {
     color: #DDDDDD;
 	text-decoration: none;
+	background-color: #FFFFFF;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
     color: #FFFFFF;
 	text-decoration: none;
+	background-color: #FFFFFF;
 }
 .navbar-default .navbar-nav > .active > a, 
 .navbar-default .navbar-nav > .active > a:hover, 
