@@ -24,7 +24,6 @@ function convertToDecimal(percent){
 }
 function generateTable(principal, monthlyRate, numberOfMonths){
 	
-	var pageTable = document.querySelector("#table"); // Get the table div
 	var plan = []; // Array for future storage of the months
 	
 	// Start things off
@@ -68,15 +67,14 @@ function generateTable(principal, monthlyRate, numberOfMonths){
 		plan[i].total = plan[i-1].total - plan[i].amount;
 	}
 	
+	// Put it in the table
 	for (var i = 0; i < plan.length; i++)
 	{
-		$(pageTable).append("<tr>");
-		$(pageTable).append("<td>"+ plan[i].monthNum + "</td>");
-		$(pageTable).append("<td>"+ plan[i].amount + "</td>");
-		$(pageTable).append("<td>"+ plan[i].principalPaid + "</td>");
-		$(pageTable).append("<td>"+ plan[i].intrestPaid + "</td>");
-		$(pageTable).append("<td>"+ plan[i].total + "</td>");
-		$(pageTable).append("</tr>");
+		$("#monthNum").append("<p align = 'center'>" + plan[i].monthNum + "</p><hr>");
+		$("#amountPaid").append("<p align = 'center'>$" + plan[i].amount.toFixed(2) + "</p><hr>");
+		$("#int").append("<p align = 'center'>$" + plan[i].principalPaid.toFixed(2) + "</p><hr>");
+		$("#prin").append("<p align = 'center'>$" +plan[i].intrestPaid.toFixed(2) + "</p><hr>");
+		$("#total").append("<p align = 'center'>$" +plan[i]. total.toFixed(2) + "</p><hr>");
 	}
 	
 	

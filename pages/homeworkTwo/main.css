@@ -3,7 +3,21 @@ body {
 	background-color: #DDDDDD;
 
 }
-.whiteSupremacy
+.white
 {
 	color: #FFFFFF;
+}
+.grayBack
+{
+	background-color: #DDDDDD;
+	color: #FFFFFF;
+}
+.whiteBack
+{
+	background-color: #FFFFFF;
+	color: #DDDDDD;
+}
+.month
+{
+	width: 5%;
 }
