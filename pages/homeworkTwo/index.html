@@ -26,7 +26,7 @@
 	<body>
 		<div class = "container">
 			<div class = "row">
-				<div class = "jumbotron">
+				<div class = "jumbotron customJumbo">
 					<h1 class="white">Homework Two</h1>
 				</div>
 			</div>
@@ -50,7 +50,7 @@
 						
 					<div class = "col-xs-12">
 						<br >
-						<button type="button" class="btn btn-primary btn-block" id="submitButton">Submit</button>
+						<button type="button" class="btn btn-primary outline btn-block" id="submitButton">Submit</button>
 					</div>
 				</form>
 				
@@ -62,7 +62,7 @@
 					</div>
 					<hr>
 					<!-- This is where the magic happens baby. -->
-					<div class = "table-responsive">
+					<div class = "table-responsive" style= "visibility:hidden" id = "tableContain">
 						<table class = " table .table-striped ">
 							<tr>
 								<td id = "monthNum" class = "grayBack month"></td>

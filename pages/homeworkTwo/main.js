@@ -67,6 +67,8 @@ function generateTable(principal, monthlyRate, numberOfMonths){
 		plan[i].total = plan[i-1].total - plan[i].amount;
 	}
 	
+	document.querySelector("#tableContain").visibility = "visible";
+	
 	// Put it in the table
 	for (var i = 0; i < plan.length; i++)
 	{
