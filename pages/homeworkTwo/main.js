@@ -67,7 +67,7 @@ function generateTable(principal, monthlyRate, numberOfMonths){
 		plan[i].total = plan[i-1].total - plan[i].amount;
 	}
 	
-	document.querySelector("#tableContain").visibility = "visible";
+	document.querySelector("#tableContain").id = "#tableContainShow";
 	
 	// Put it in the table
 	for (var i = 0; i < plan.length; i++)
@@ -84,12 +84,12 @@ function generateTable(principal, monthlyRate, numberOfMonths){
 function mainFunc(event){
 	var rate = document.querySelector("#Rate");
 	var prince = document.querySelector("#Principle");
-	//var years = document.querySelector("#Radial").selectedIndex;
+	var years = document.querySelector('input[name="yearVal"]:checked').value;
 	
 	rate = rate.value;
 	prince = prince.value;
 	
-	generateTable(prince, convertToDecimal(rate), convertToMonths(15));
+	generateTable(prince, convertToDecimal(rate), convertToMonths(years));
 
 }
 

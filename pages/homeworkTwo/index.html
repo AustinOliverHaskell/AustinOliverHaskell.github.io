@@ -43,9 +43,9 @@
 						</div>
 					</div>
 					<div class = "col-xs-12" id = "radial">
-						<label class="radio-inline"><input type="radio" name="optradio" value="15">15 Years</label>
-						<label class="radio-inline"><input type="radio" name="optradio" value="20">20 Years</label>
-						<label class="radio-inline"><input type="radio" name="optradio" value="30">30 Years</label>
+						<label class="radio-inline"><input type="radio" name="yearVal" value="15">15 Years</label>
+						<label class="radio-inline"><input type="radio" name="yearVal" value="20">20 Years</label>
+						<label class="radio-inline"><input type="radio" name="yearVal" value="30">30 Years</label>
 					</div>
 						
 					<div class = "col-xs-12">
@@ -60,10 +60,19 @@
 					<div id="tableHeader">
 					
 					</div>
-					<hr>
 					<!-- This is where the magic happens baby. -->
-					<div class = "table-responsive" style= "visibility:hidden" id = "tableContain">
+					<div class = "table-responsive" id = "tableContain">
 						<table class = " table .table-striped ">
+							<tr>
+								<td><p align = "center">Month #</p></td>
+								<td><p align = "center">Monthly Cost</p></td>
+								<td><p align = "center">Amount from Principle</p></td>
+								<td><p align = "center">Amount from Interest</p></td>
+								<td><p align = "center">Total Remaining</p></td>
+							</tr>
+							
+							<hr>
+							
 							<tr>
 								<td id = "monthNum" class = "grayBack month"></td>
 								<td id = "amountPaid" class = "whiteBack"></td>
@@ -71,6 +80,9 @@
 								<td id = "prin" class = "whiteBack"></td>
 								<td id = "total" class = "grayBack"></td>
 							</tr>
+							
+							<hr>
+							
 						</table>
 					</div>	
 					

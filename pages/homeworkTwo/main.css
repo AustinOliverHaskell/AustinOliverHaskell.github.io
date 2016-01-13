@@ -19,7 +19,7 @@ body {
 }
 .month
 {
-	width: 5%;
+	width: 10%;
 }
 body .customJumbo
 {
@@ -79,3 +79,23 @@ body .customJumbo
     color: #007299;
     box-shadow: none;
 }
+
+/**************************************************************************************************************************/
+
+#tableContain
+{
+	visibility: hidden;
+}
+#tableContainShow
+{
+	visibility: visible;
+}
+
+
+
+
+
+
+
+
+
