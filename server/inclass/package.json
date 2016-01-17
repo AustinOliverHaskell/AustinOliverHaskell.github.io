@@ -1,0 +1,11 @@
+{
+  "name": "inclass",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Austin Haskell and Friends",
+  "license": "ISC"
+}
