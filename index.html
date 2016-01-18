@@ -15,20 +15,39 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" 
 		integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 		
-		<!-- Latest compiled and minified JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" 
-		integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
-		crossorigin="anonymous"></script>
 		
 		<!-- For Mobile -->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<meta charset="utf-8">
 
-
-	
 		<link rel = "stylesheet" type = "text/css" href = "main.css" >
 	</head>
 	
 	<body>
+	
+		<!-- Modal -->
+		<div id="myModal" class="modal" role="dialog" tabindex=-1>
+		  <div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span></button>
+				<h4 class="modal-title">Modal Header</h4>
+			  </div>
+			  <div class="modal-body">
+				<p>Some text in the modal.</p>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			  </div>
+			</div>
+
+		  </div>
+		</div>
+
+	
 		<nav class="navbar navbar-fixed-top noTea">
 		  <div class="container-fluid">
 			<div class="navbar-header">
@@ -61,19 +80,11 @@
 				
 				<div class = "col-xs-12 col-sm-12 col-md-3 col-lg-3">
 					<div class = "whiteWell Well">
+						
+					<a data-toggle ="modal" data-target="#myModal" >
 						<img src="images/grass.jpg" class="img-responsive">
-					</div>
-					<br>
-					<div class = "whiteWell Well">
-						<img src="images/blankFive.jpg" class="img-responsive">
-					</div>
-					<br>
-					<div class = "whiteWell Well">
-						<img src="images/blankFour.jpg" class="img-responsive">
-					</div>
-					<br>
-					<div class = "whiteWell Well">
-						<img src="images/blankThree.jpg" class="img-responsive">
+					</a>
+						
 					</div>
 				</div>
 				
@@ -84,18 +95,7 @@
 					<div class = "whiteWell Well">
 						<img src="images/blankFive.jpg" class="img-responsive">
 					</div>
-					<br>
-					<div class = "whiteWell Well">
-						<img src="images/blankFive.jpg" class="img-responsive">
-					</div>
-					<br>
-					<div class = "whiteWell Well">
-						<img src="images/blankFour.jpg" class="img-responsive">
-					</div>
-					<br>
-					<div class = "whiteWell Well">
-						<img src="images/blankThree.jpg" class="img-responsive">
-					</div>
+
 				</div>
 				
 				<div class = "col-xs-0 col-md-1 col-lg-1" id = "leftBuffer">
@@ -105,22 +105,9 @@
 					<div class = "whiteWell Well">
 						<img src="images/blankFour.jpg" class="img-responsive">
 					</div>
-					<br>
-					<div class = "whiteWell Well">
-						<img src="images/blankFive.jpg" class="img-responsive">
-					</div>
-					<br>
-					<div class = "whiteWell Well">
-						<img src="images/blankFour.jpg" class="img-responsive">
-					</div>
-					<br>
-					<div class = "whiteWell Well">
-						<img src="images/blankThree.jpg" class="img-responsive">
-					</div>
 				</div>
 			</div>
 		</div>
-		
 </HTML>
 
 
