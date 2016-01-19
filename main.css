@@ -53,6 +53,14 @@ body a:hover
    padding: 2px;
    border:1px solid #DDDDDD;
    background-color:#FFFFFF;
+   margin-top: 4px;
+}
+.customDesignImg
+{
+   padding: 10px;
+   border:1px solid #DDDDDD;
+   background-color:#FFFFFF;
+   margin-top: 4px;
 }
 
 /* ************************************************************************************************************************************************************************************** */

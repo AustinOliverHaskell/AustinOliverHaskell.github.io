@@ -22,6 +22,7 @@
 		<meta charset="utf-8">
 
 		<link rel = "stylesheet" type = "text/css" href = "main.css" >
+		<script type="text/javascript" src="main.js"></script>
 	</head>
 	
 	<body>
@@ -42,16 +43,16 @@
 				
 					<div class = "row">
 						<div class = "col-xs-12 col-sm-8">
-							<img src="images/grass.jpg" class="img-responsive item">
+							<img src="images/blank_shirts/white.jpg" class="img-responsive customDesignImg" id="displayImg" value="white">
 							<br>
 						</div>
 
 						<div class = "col-xs-12 col-sm-4">
 							<div class="dropdown">
-							  <button class="btn btn-primary outline btn-block dropdown-toggle" type="button" data-toggle="dropdown"> Choose Design
+							  <button class="btn btn-primary outline btn-block dropdown-toggle" type="button" data-toggle="dropdown" id="chosenDesign"> Choose Design
 							  <span class="caret"></span></button>
-							  <ul class="dropdown-menu">
-								<li><a href="#">Design 1</a></li>
+							  <ul class="dropdown-menu" id="design">
+								<li><a href="#" class="active" onclick="changeDesign('Design One')">Design 1</a></li>
 								<li><a href="#">Design 2</a></li>
 								<li><a href="#">Design 3</a></li>
 							  </ul>
@@ -60,8 +61,8 @@
 							<br>
 							
 							<div class="dropdown">
-							  <button class="btn btn-primary btn-block dropdown-toggle outline" type="button" data-toggle="dropdown"><span>Shirt Type</span>
-							  <span class="glyphicon glyphicon-triangle-bottom" align="right"></span></button>
+							  <button class="btn btn-primary outline btn-block dropdown-toggle" type="button" data-toggle="dropdown"> Shirt Type
+							  <span class="caret"></span></button>
 							  <ul class="dropdown-menu">
 								<li><a href="#">Long Sleeve</a></li>
 								<li><a href="#">Short Sleeve</a></li>
@@ -87,14 +88,23 @@
 							
 							<h5>Shirt Color:</h5>
 							<div id="thumbs">
-								<span><a href = "#"><img src="images/thumbs/Thumb_Black.png" class="item"></a></span>
-								<span><a href = "#"><img src="images/thumbs/Thumb_Grey.png" class="item"></a></span>
-								<span><a href = "#"><img src="images/thumbs/Thumb_White.png" class="item"></a></span>
-								<span><a href = "#"><img src="images/thumbs/Thumb_Blue.png" class="item"></a></span>
-								<span><a href = "#"><img src="images/thumbs/Thumb_Aqua.png" class="item"></a></span>
-								<span><a href = "#"><img src="images/thumbs/Thumb_Green.png" class="item"></a></span>
-								<span><a href = "#"><img src="images/thumbs/Thumb_Red.png" class="item"></a></span>
-								<span><a href = "#"><img src="images/thumbs/Thumb_Pink.png" class="item"></a></span>
+								<span><a href = "#" onclick="swapShirts('images/blank_shirts/black.jpg','black')"><img src="images/thumbs/Thumb_Black.png" class="item"></a></span>
+								<span><a href = "#" onclick="swapShirts('images/blank_shirts/grey.jpg', 'grey')"><img src="images/thumbs/Thumb_Grey.png" class="item"></a></span>
+								<span><a href = "#"onclick="swapShirts('images/blank_shirts/white.jpg', 'white')"><img src="images/thumbs/Thumb_White.png" class="item"></a></span>
+								<span><a href = "#" onclick="swapShirts('images/blank_shirts/blue.jpg', 'blue')"><img src="images/thumbs/Thumb_Blue.png" class="item"></a></span>
+								<span><a href = "#" onclick="swapShirts('images/blank_shirts/aqua.jpg', 'aqua')"><img src="images/thumbs/Thumb_Aqua.png" class="item"></a></span>
+								<span><a href = "#" onclick="swapShirts('images/blank_shirts/green.jpg', 'green')"><img src="images/thumbs/Thumb_Green.png" class="item"></a></span>
+								<span><a href = "#" onclick="swapShirts('images/blank_shirts/yellow.jpg','yellow')"><img src="images/thumbs/Thumb_Yellow.png" class="item"></a></span>
+								<span><a href = "#"onclick="swapShirts('images/blank_shirts/orange.jpg','orange')"><img src="images/thumbs/Thumb_Orange.png" class="item"></a></span>
+								<span><a href = "#" onclick="swapShirts('images/blank_shirts/red.jpg','red')"><img src="images/thumbs/Thumb_Red.png" class="item"></a></span>
+								<span><a href = "#" onclick="swapShirts('images/blank_shirts/purple.jpg','purple')"><img src="images/thumbs/Thumb_Purple.png" class="item"></a></span>
+							</div>
+							
+							<br>
+							
+							<div class="form-group">
+							  <label for="Quantity">Quantity:</label>
+							  <input type="text" class="form-control" id="Quantity">
 							</div>
 							
 						</div>
@@ -150,7 +160,7 @@
 					<div class = "whiteWell Well">
 						
 					<a data-toggle ="modal" data-target="#myModal" >
-						<img src="images/grass.jpg" class="img-responsive">
+						<img src="images/blank_shirts/white.jpg" class="img-responsive">
 					</a>
 						
 					</div>
@@ -161,7 +171,7 @@
 				
 				<div class = "col-xs-12 col-sm-12 col-md-3 col-lg-3">
 					<div class = "whiteWell Well">
-						<img src="images/blankFive.jpg" class="img-responsive">
+						
 					</div>
 
 				</div>
@@ -171,7 +181,7 @@
 				
 				<div class = "col-xs-12 col-sm-12 col-md-3 col-lg-3">
 					<div class = "whiteWell Well">
-						<img src="images/blankFour.jpg" class="img-responsive">
+						
 					</div>
 				</div>
 			</div>
