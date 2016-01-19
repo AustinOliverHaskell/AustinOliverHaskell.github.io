@@ -61,7 +61,16 @@ body a:hover
    border:1px solid #DDDDDD;
    background-color:#FFFFFF;
    margin-top: 4px;
+   position: relative;
 }
+.design
+{
+  position: absolute;
+  top: 80px;
+  left: 145px;
+  width: 300px;
+}
+
 
 /* ************************************************************************************************************************************************************************************** */
 
