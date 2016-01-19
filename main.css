@@ -149,6 +149,86 @@ body a:hover
 }
 
 
+/* ************************************************************************************************************************************************************************************** */
+
+.btn {
+    padding: 14px 24px;
+    border: 0 none;
+    font-weight: 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+ 
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+ 
+.btn-primary {
+    background: #666666;
+    color: #666666;
+}
+ 
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: none;
+}
+ 
+.btn-primary:active, .btn-primary.active {
+    background: #007299;
+    box-shadow: none;
+}
+
+.btn.outline {
+    background: none;
+    padding: 12px 22px;
+}
+
+.btn-primary.outline {
+    border: 2px solid #666666;
+    color: #666666;
+}
+
+.btn-primary.outline:hover, .btn-primary.outline:focus, .btn-primary.outline:active, .btn-primary.outline.active, .open > .dropdown-toggle.btn-primary {
+    color: #DDDDDD;
+    border-color: #DDDDDD;
+}
+.btn-primary.outline:active, .btn-primary.outline.active {
+    border-color: #DDDDDD;
+    color: #DDDDDD;
+    box-shadow: none;
+}
+
+/* ************************************************************************************************************************************************************************************** */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
