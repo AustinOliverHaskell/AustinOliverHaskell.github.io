@@ -11,12 +11,7 @@ function login(){
 	
 }
 
-function signUp() {
-	
-	$(document).ready(signUpHelper);
-}
-
-function signUpHelper()
+function signUp()
 {
 		// Get Username
 		var userName = $("#newUser").val();
