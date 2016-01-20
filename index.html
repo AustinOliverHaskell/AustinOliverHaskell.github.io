@@ -15,6 +15,8 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" 
 		integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 		
+		<!-- firebase library -->
+		<script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
 		
 		<!-- For Mobile -->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,6 +25,7 @@
 
 		<link rel = "stylesheet" type = "text/css" href = "main.css" >
 		<script type="text/javascript" src="main.js"></script>
+		<script type="text/javascript" src="login_script.js"></script>
 	</head>
 	
 	<body>
@@ -154,7 +157,85 @@
 
 	<!-- **************************************************************************************************************************************************************************************************************************************************** -->
 	
-		<nav class="navbar navbar-fixed-top noTea">
+	
+	<!-- Login Modal -->
+		<div id="loginModal" class="modal fade" role="dialog" tabindex=-1>
+		  <div class="modal-dialog modal-lg">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span></button>
+				<h4 class="modal-title mainCustomFont"><strong>LogIN Or SiGn-UP</strong></h4>
+			  </div>
+			  <div class="modal-body">
+				
+				<div class = "row">
+					<div class = "col-xs-0 col-md-1">
+					</div>
+					
+					<div class = "col-xs-12 col-md-4">
+						<div align="center"><h2 class = "customFont">LogIN</h2></div>
+						<br>
+						<form role="form">
+						  <div class="form-group">
+							<label for="usr"class="customFont">UseRName:</label>
+							<input type="text" class="form-control" id="usr">
+						  </div>
+						  
+						  <div class="form-group">
+							<label for="pwd" class="customFont">PASswOrd:</label>
+							<input type="password" class="form-control" id="pwd">
+						  </div>
+						  
+						  <button type="submit" class="btn btn-primary outline btn-md"><span class="glyphicon glyphicon-ok"></span> LOgIn</button>
+						</form>
+					</div>
+					
+					<div class = "col-xs-0 col-md-2">
+					</div>
+					
+					<div class = "col-xs-12 col-md-4">
+						<div align="center"><h2 class = "customFont">SiGn-UP</h2></div>
+						<br>
+						<form role="form">
+						  <div class="form-group">
+							<label for="usr"class="customFont">UseRName:</label>
+							<input type="text" class="form-control" id="newUser">
+						  </div>
+						  
+						  <div class="form-group">
+							<label for="email" class="customFont">EmaIL aDDreSs:</label>
+							<input type="email" class="form-control" id="newEmail">
+						  </div>
+						  
+						  <div class="form-group">
+							<label for="pwd" class="customFont">PaSSWord:</label>
+							<input type="password" class="form-control" id="newPassword">
+						  </div>
+						  
+						  <button class="btn btn-primary outline btn-md" onclick="signUp()"><span class="glyphicon glyphicon-plus"></span> CReate AccOUnt</button>
+						</form>
+					</div>
+					
+					<div class = "col-xs-0 col-md-1">
+					</div>
+				
+				</div>
+					
+			  </div>
+				
+			  <!-- FOOTER FOR MODAL -->	
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-primary outline" data-dismiss="modal">Close</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		
+		<!--****************************************************************************************************************************************************************************************************************************************************-->
+
+		<nav class="navbar navbar-fixed-top noTea"><!-- NAV BAR -->
 		  <div class="container-fluid">
 			<div class="navbar-header">
 			  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -170,8 +251,8 @@
 					<li><a href="#" class="customFont">COntACT</a></li> 
 				</ul>
 				<ul class = "nav navbar-nav navbar-right">
-					<li><a href="#" class="customFont">LogIN <span class = "glyphicon glyphicon-log-in"></span></a></li> 
-					<li><a href="#" class="customFont">SigNup <span class = "glyphicon glyphicon-user"></span></a></li> 
+					<li><a data-toggle ="modal" data-target="#loginModal" class = "customFont">LogIN <span class = "glyphicon glyphicon-log-in"></span></a></li> 
+					<li><a data-toggle ="modal" data-target="#loginModal" class = "customFont">SigNup <span class = "glyphicon glyphicon-user"></span></a></li> 
 				</ul>
 			</div>
 		  </div>
@@ -180,7 +261,10 @@
 		<!--****************************************************************************************************************************************************************************************************************************************************-->
 		
 		<br><br><br><br><br><br>
-		<div class = "container">
+		
+		<!--****************************************************************************************************************************************************************************************************************************************************-->
+
+		<div class = "container"> <!-- BODY CONTENT -->
 			<div class = "row">
 				<div class = "col-xs-0 col-sm-12 col-md-0 col-lg-1" id = "rightBuffer">
 				</div>
