@@ -1,3 +1,6 @@
+// Get Firebase
+var ember = new Firebase("https://jterm2016.firebaseio.com");
+
 function login(){
 	
 	// Get Username
@@ -21,9 +24,6 @@ function signUp()
 		
 		// Get Email
 		var userEmail = $("#newEmail").val();
-		
-		// Get Firebase
-		var ember = new Firebase("https://jterm2016.firebaseio.com");
 		
 		ember.push({Username: userName, Email: userEmail, Password: userPass, Designs: 0});
 		
