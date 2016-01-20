@@ -5,9 +5,17 @@ function login(){
 	
 	// Get Username
 	var userName = $("#usr");
-	
 	// Get pass
 	var userPass = $("#pwd");
+	
+	// Go ahead and clear the fields
+	$("#usr").val("");
+	$("#pwd").val("");
+	
+	// Check for account existence
+	
+	// If account doesn't exist
+	
 
 }
 

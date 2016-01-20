@@ -146,6 +146,7 @@ function changeShirtType(type){
 	var image = $("#displayImg").attr("shirtColor");
 	
 	swapShirts(image);
+	updatePricing();
 }
 function changeSize(size) {
 	
@@ -195,7 +196,37 @@ function changeDesignSize() {
 		design.css("width", "70%");
 	}
 }
-
+function updatePricing() {
+	
+	// Get needed data
+	var shirtType = $("#chosenType");
+	var qty = $("#Quantity");
+	
+	// Get feilds
+	var price = $("#price");
+	var count = $("#qCount");
+	var total = $("#total");
+	
+	if (shirtType.val() === "Long Sleeve")
+	{
+		count.text(qty.val());
+		price.text("15.00");
+		total.text("$"+qty.val()*15);
+	}
+	else if (shirtType.val() === "Short Sleeve")
+	{
+		count.text(qty.val());
+		price.text("12.00");
+		total.text("$"+qty.val()*12);
+	}
+	else if (shirtType.val() === "Hoodie")
+	{
+		count.text(qty.val());
+		price.text("22.00");
+		total.text("$"+qty.val()*22);
+	}
+	
+}
 
 
 
