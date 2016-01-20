@@ -8,10 +8,7 @@ function login(){
 	
 	// Get pass
 	var userPass = $("#pwd");
-	
-	// Get Firebase
-	var ember = new Firebase("https://jterm2016.firebaseio.com");
-	
+
 }
 
 function signUp()

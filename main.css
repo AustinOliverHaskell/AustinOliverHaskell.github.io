@@ -230,6 +230,18 @@ body a:hover
 
 /* ************************************************************************************************************************************************************************************** */
 
+.modalBack.modal-content{
+    background-image: url("dude.png");
+}
+
+.modalBack.modal-header{
+    background-image: url("dude.png");
+}
+
+.modalBack.modal-footer{
+    background-image: url("dude.png");
+}
+
 
 
 
