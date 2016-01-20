@@ -37,14 +37,13 @@
 			<div class="modal-content">
 			  <div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span></button>
-				<h4 class="modal-title">Customize</h4>
+				<h4 class="modal-title mainCustomFont"><strong>CusTOMiZe</strong></h4>
 			  </div>
 			  <div class="modal-body">
-				
 					<div class = "row">
 						<div class = "col-xs-12 col-sm-8">
 							<img src="images/blank_shirts/white.jpg" class="img-responsive customDesignImg" id="displayImg" shirtColor="white">
-							<img src="images/Designs/test390x390.png" class="img-responsive design">
+							<img src="images/Designs/test390x390.png" class="img-responsive" id="designImg">
 							<br>
 						</div>
 
@@ -53,9 +52,8 @@
 							  <button class="btn btn-primary outline btn-block dropdown-toggle" type="button" data-toggle="dropdown" id="chosenDesign" value="none"> Choose Design
 							  <span class="caret"></span></button>
 							  <ul class="dropdown-menu" id="design">
-								<li><a href="#" onclick="changeDesign('Design One')">Design 1</a></li>
-								<li><a href="#" onclick="changeDesign('Design Two')">Design 2</a></li>
-								<li><a href="#" onclick="changeDesign('Design Three')">Design 3</a></li>
+								<li><a href="#" onclick="changeDesign('Pinsirs')">Pinsirs</a></li>
+								<li><a href="#" onclick="changeDesign('Twitter')">Twitter</a></li>
 							  </ul>
 							</div>
 							
@@ -87,7 +85,7 @@
 							</div>
 							<br>
 							
-							<h5>Shirt Color:</h5>
+							<h5 class="mainCustomFont">Shirt Color:</h5>
 							<div id="thumbs">
 								<span><a href = "#" onclick="swapShirts('black')"><img src="images/thumbs/Thumb_Black.png" class="item"></a></span>
 								<span><a href = "#" onclick="swapShirts('grey')"><img src="images/thumbs/Thumb_Grey.png" class="item"></a></span>
@@ -104,8 +102,39 @@
 							<br>
 							
 							<div class="form-group">
-							  <label for="Quantity">Quantity:</label>
+							  <h2 class="mainCustomFont">QuAntItY:</h2>
 							  <input type="text" class="form-control" id="Quantity">
+							</div>
+							
+							<br>
+							
+							<div class = "row">
+								<div class="col-xs-4 mainCustomFont" >
+									PrICe:
+								</div>
+								<div class="col-xs-8 mainCustomFont" align="right">
+									0.00
+								</div>
+							</div>
+							
+							<div class = "row">
+								<div class="col-xs-3 mainCustomFont">
+									QuaNTiTy:
+								</div>
+								<div class="col-xs-9 mainCustomFont" align="right">
+									0
+								</div>
+							</div>
+							
+							<hr>
+							
+							<div class = "row">
+								<div class="col-xs-3 mainCustomFont" align="right">
+									TotAL:
+								</div>
+								<div class="col-xs-9 mainCustomFont" align="right">
+									0.00
+								</div>
 							</div>
 							
 						</div>
@@ -131,19 +160,18 @@
 			  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
 				<span class="glyphicon glyphicon-option-vertical notWhite"></span>
 			  </button>
-			  <a class="navbar-brand otherCustom" href="#">Somewhat Geeky</a>
+			  <a class="navbar-brand otherCustom" href="#">SomEWhaT GeEKy</a>
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
-					<li class="active customFont"><a href="#">Home</a></li>
-					<li><a href="#"class="customFont">Designs</a></li>
-					<li><a href="#" class="customFont">Shirts</a></li> 
-					<li><a href="#" class="customFont">Posters</a></li> 
-					<li><a href="#" class="customFont">Contact</a></li> 
+					<li class="active customFont"><a href="#">HoMe</a></li>
+					<li><a href="#"class="customFont">DesIGnS</a></li>
+					<li><a href="#" class="customFont">SHirTS</a></li>  
+					<li><a href="#" class="customFont">COntACT</a></li> 
 				</ul>
 				<ul class = "nav navbar-nav navbar-right">
-					<li><a href="#" class="customFont">Login <span class = "glyphicon glyphicon-log-in"></span></a></li> 
-					<li><a href="#" class="customFont">Signup <span class = "glyphicon glyphicon-user"></span></a></li> 
+					<li><a href="#" class="customFont">LogIN <span class = "glyphicon glyphicon-log-in"></span></a></li> 
+					<li><a href="#" class="customFont">SigNup <span class = "glyphicon glyphicon-user"></span></a></li> 
 				</ul>
 			</div>
 		  </div>

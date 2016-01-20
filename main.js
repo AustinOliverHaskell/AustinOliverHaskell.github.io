@@ -112,18 +112,27 @@ function swapShirts(color){
 	
 
 }
-
 function changeDesign(text) {
 	
 	var design = $("#chosenDesign");
+	var img = $("#designImg");
 	
 	design.text(text);
 	
 	design.val(text);
 	
+	if(text === "Pinsirs")
+	{
+		img.attr("src","images/Designs/test390x390.png");
+	}
+	else if (text === "Twitter")
+	{
+		img.attr("src","images/Designs/twitter.png");
+	}
+	
+	
 	//console.log("IT GOT THERE");
 }
-
 function changeShirtType(type){
 	
 	var shirtType = $("#chosenType");
@@ -131,8 +140,13 @@ function changeShirtType(type){
 	shirtType.text(type);
 	
 	shirtType.val(type);
+	
+	changeDesignSize();
+	
+	var image = $("#displayImg").attr("shirtColor");
+	
+	swapShirts(image);
 }
-
 function changeSize(size) {
 	
 	var shirtSize = $("#chosenSize");
@@ -141,7 +155,6 @@ function changeSize(size) {
 	
 	shirtSize.value = size;
 }
-
 function getAllValues() {
 	
 	var shirtType = $("#chosenType");
@@ -158,7 +171,30 @@ function getAllValues() {
 	console.log("Size: "+size.val());
 	
 }
-
+function changeDesignSize() {
+	
+	var design = $("#designImg");
+	var type = $("#chosenType");
+	
+	if (type.val() === "Short Sleeve")
+	{
+		design.css("top","10%");
+		design.css("left", "25%");
+		design.css("width", "48%");
+	}
+	else if (type.val() === "Long Sleeve")
+	{
+		design.css("top","14%");
+		design.css("left", "31%");
+		design.css("width", "39%");
+	}
+	else if (type.val() === "Hoodie")
+	{
+		design.css("top","10%");
+		design.css("left", "25%");
+		design.css("width", "70%");
+	}
+}
 
 
 
