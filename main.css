@@ -85,6 +85,11 @@ body a:hover
 	border-left: 1px solid #DDDDDD;
 	border-right: 1px solid #DDDDDD;
 }
+.error
+{
+	color: #FF0000;
+	font-family: "mainFont";
+}
 
 /* ************************************************************************************************************************************************************************************** */
 
@@ -242,8 +247,18 @@ body a:hover
     background-image: url("dude.png");
 }
 
-
-
+#myEmail
+{
+	color: #666666;
+	font-family: "mainFont";
+	font-size: 150%;
+}
+#myUsername
+{
+	color: #666666;
+	font-family: "mainFont";
+	font-size: 150%;
+}
 
 
 

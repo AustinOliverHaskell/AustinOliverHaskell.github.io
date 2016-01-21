@@ -52,7 +52,7 @@ function swapShirts(color){
 	{
 		if (color === 'white')
 		{
-			image.attr("src","images/blank_shirts/v_white.jpg");
+			image.attr("src","images/blank_shirts/l_white.jpg");
 		}
 		else if ( color === 'grey')
 		{
@@ -260,18 +260,32 @@ function changeSize(size) {
 }
 function getAllValues() {
 	
-	var shirtType = $("#chosenType");
-	var design = $("#chosenDesign");
-	var image = $("#displayImg");
-	var qty = $("#Quantity");
-	var size = $("#chosenSize");
+	var tempShirtType = $("#chosenType").val();
+	var tempDesign = $("#chosenDesign").val();
+	var tempColor = $("#displayImg").attr("shirtColor");
+	var tempQty = $("#Quantity").val();
+	var tempSize = $("#chosenSize").val();
+	var tempTotalPrice = $("#total").val();
 	
-	
-	console.log("Img color: "+image.attr("shirtColor"));
+	/*
+	console.log("Img color: "+color.attr("shirtColor"));
 	console.log("Chosen Design: "+design.val());
 	console.log("Shirt Type: "+shirtType.val());
 	console.log("Quantity: "+qty.val());
 	console.log("Size: "+size.val());
+	console.log("Price for Order: "+totalPrice.val());
+	*/
+	
+	var order = {
+		Type: tempShirtType,
+		Design: tempDesign,
+		Color: tempColor,
+		Qty: tempQty,
+		Size: tempSize,
+		Price: tempTotalPrice
+	};
+	
+	return order;
 	
 }
 function changeDesignSize() {
