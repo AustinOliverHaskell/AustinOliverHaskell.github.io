@@ -134,6 +134,49 @@ function swapShirts(color){
 			image.attr("src","images/blank_shirts/v_purple.jpg");
 		}
 	}
+	else if (shirtType.val() === "Hoodie")
+	{
+			if (color === 'white')
+		{
+			image.attr("src","images/blank_shirts/h_white.jpg");
+		}
+		else if ( color === 'grey')
+		{
+			image.attr("src","images/blank_shirts/h_grey.jpg");
+		}
+		else if (color === "black")
+		{
+			image.attr("src","images/blank_shirts/h_black.jpg");
+		}
+		else if (color === "red")
+		{
+			image.attr("src","images/blank_shirts/h_red.jpg");
+		}
+		else if (color === "yellow")
+		{
+			image.attr("src","images/blank_shirts/h_yellow.jpg");
+		}
+		else if (color === "orange")
+		{
+			image.attr("src","images/blank_shirts/h_orange.jpg");
+		}
+		else if (color === "green")
+		{
+			image.attr("src","images/blank_shirts/h_green.jpg");
+		}
+		else if (color === "blue")
+		{
+			image.attr("src","images/blank_shirts/h_blue.jpg");
+		}
+		else if (color === "aqua")
+		{
+			image.attr("src","images/blank_shirts/h_aqua.jpg");
+		}
+		else if (color === "purple")
+		{
+			image.attr("src","images/blank_shirts/h_purple.jpg");
+		}
+	}
 	
 	
 	
@@ -183,6 +226,10 @@ function changeDesign(text) {
 	else if (text === "Drive")
 	{
 		img.attr("src","images/Designs/drive.png");
+	}
+	else if (text === "Trek")
+	{
+		img.attr("src","images/Designs/trek.png");
 	}
 	
 	
@@ -250,6 +297,12 @@ function changeDesignSize() {
 		design.css("left", "27%");
 		design.css("width", "45%");
 	}
+	else if (type.val() === "Hoodie")
+	{
+		design.css("top","20%");
+		design.css("left", "28%");
+		design.css("width", "46%");
+	}
 }
 function updatePricing() {
 	
@@ -279,6 +332,12 @@ function updatePricing() {
 		count.text(qty.val());
 		price.text("22.00");
 		total.text("$"+qty.val()*22);
+	}
+	else if (shirtType.val() === "VNeck")
+	{
+		count.text(qty.val());
+		price.text("14.00");
+		total.text("$"+qty.val()*14);
 	}
 	
 }
