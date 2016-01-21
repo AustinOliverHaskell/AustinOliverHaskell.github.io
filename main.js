@@ -52,7 +52,7 @@ function swapShirts(color){
 	{
 		if (color === 'white')
 		{
-			image.attr("src","images/blank_shirts/l_white.jpg");
+			image.attr("src","images/blank_shirts/v_white.jpg");
 		}
 		else if ( color === 'grey')
 		{
@@ -91,9 +91,48 @@ function swapShirts(color){
 			image.attr("src","images/blank_shirts/l_purple.jpg");
 		}
 	}
-	else if (shirtType.val() === "Hoodie")
+	else if (shirtType.val() === "VNeck")
 	{
-		
+			if (color === 'white')
+		{
+			image.attr("src","images/blank_shirts/v_white.jpg");
+		}
+		else if ( color === 'grey')
+		{
+			image.attr("src","images/blank_shirts/v_grey.jpg");
+		}
+		else if (color === "black")
+		{
+			image.attr("src","images/blank_shirts/v_black.jpg");
+		}
+		else if (color === "red")
+		{
+			image.attr("src","images/blank_shirts/v_red.jpg");
+		}
+		else if (color === "yellow")
+		{
+			image.attr("src","images/blank_shirts/v_yellow.jpg");
+		}
+		else if (color === "orange")
+		{
+			image.attr("src","images/blank_shirts/v_orange.jpg");
+		}
+		else if (color === "green")
+		{
+			image.attr("src","images/blank_shirts/v_green.jpg");
+		}
+		else if (color === "blue")
+		{
+			image.attr("src","images/blank_shirts/v_blue.jpg");
+		}
+		else if (color === "aqua")
+		{
+			image.attr("src","images/blank_shirts/v_aqua.jpg");
+		}
+		else if (color === "purple")
+		{
+			image.attr("src","images/blank_shirts/v_purple.jpg");
+		}
 	}
 	
 	
@@ -128,6 +167,22 @@ function changeDesign(text) {
 	else if (text === "Twitter")
 	{
 		img.attr("src","images/Designs/twitter.png");
+	}
+	else if (text === "Playstation")
+	{
+		img.attr("src","images/Designs/playstation.png");
+	}
+	else if (text === "Magikarp")
+	{
+		img.attr("src","images/Designs/magikarp.png");
+	}
+	else if (text === "Github")
+	{
+		img.attr("src","images/Designs/github.png");
+	}
+	else if (text === "Drive")
+	{
+		img.attr("src","images/Designs/drive.png");
 	}
 	
 	
@@ -189,11 +244,11 @@ function changeDesignSize() {
 		design.css("left", "31%");
 		design.css("width", "39%");
 	}
-	else if (type.val() === "Hoodie")
+	else if (type.val() === "VNeck")
 	{
-		design.css("top","10%");
-		design.css("left", "25%");
-		design.css("width", "70%");
+		design.css("top","19%");
+		design.css("left", "27%");
+		design.css("width", "45%");
 	}
 }
 function updatePricing() {

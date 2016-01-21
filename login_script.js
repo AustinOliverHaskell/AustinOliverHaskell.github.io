@@ -14,6 +14,19 @@ function login(){
 	
 	// Check for account existence
 	
+	ember.once("value", function(snapshot) {
+		var a = snapshot.exists();
+		// a === true
+
+		var b = snapshot.child("name").exists();
+		// b === true
+
+		var c = snapshot.child("name/first").exists();
+		// c === true
+
+		var d = snapshot.child("name/middle").exists();
+		// d === false (because there is no "name/middle" child in the data snapshot)
+		});
 	// If account doesn't exist
 	
 
