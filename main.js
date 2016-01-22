@@ -368,17 +368,39 @@ function createThumbnail(obj) {
 }
 function createPriceDisplay() {
 	
-	if(activeUser.cart.length === 0)
+	if(activeUser.cart.length !== 0)
 	{
 		$(".cartList").remove();
+		var tempTotal = 0;
 		
 		for(var i = 0; i < activeUser.cart.length; i++)
 		{
+			tempTotal += parseInt(activeUser.cart[i].Price);
 			$("#priceTable").append("<li class='customFont cartList'>" + activeUser.cart[i].Design +" - " + activeUser.cart[i].Color + " "+ activeUser.cart[i].Type + " " + activeUser.cart[i].Size + " - Cost: $" + activeUser.cart[i].Price + "</li>");
 		}
+		
+		$("#pricingInfo").append("<div class='customFont cartList' align='right'>Shipping: $18.00</div>");
+		$("#pricingInfo").append("<div class='customFont cartList' align='right'>Tax (8%): $"+ (tempTotal * 0.08).toFixed(2) +"</div>");
+		$("#pricingInfo").append("<div class='customFont cartList' align='right'>Total Price: $"+ (tempTotal + (tempTotal * 0.08) + 18).toFixed(2) +"</div>");
+	}
+	else
+	{
+		$(".cartList").remove();
+		$("#priceTable").append("<li class='customFont cartList'>Cart IS EmPty :( </li>");
 	}
 }
-
+function clearCart() {
+	for (var i = 0; i < activeUser.cart.length; i++)
+	{
+		activeUser.cart.pop();
+	}
+	
+	$(".cartList").remove();
+	$('#cartModal').modal('toggle');
+	// Update object
+	ember.child(key).update(activeUser);
+	
+}
 
 
 

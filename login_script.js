@@ -82,7 +82,6 @@ function login(fromSign){
 
 
 }
-
 function signUp() {
 		// Get Username
 		var userName = $("#newUser").val();
@@ -122,20 +121,18 @@ function signUp() {
 		
 	});
 }
-
 function changePage(currentUser) {
 	
 	$("#loginNav").remove();
 	$("#signupNav").remove();
 	
-	$("#userArea").append("<li id='dashNav'><a data-toggle ='modal' data-target='#loginModal' class = 'customFont'>DashBOaRd <span class = 'glyphicon glyphicon-dashboard'></span></a></li>");
+	//$("#userArea").append("<li id='dashNav'><a data-toggle ='modal' data-target='#loginModal' class = 'customFont'>DashBOaRd <span class = 'glyphicon glyphicon-dashboard'></span></a></li>");
 	$("#userArea").append("<li id='cartNav'><a data-toggle ='modal' data-target='#cartModal' class = 'customFont' onclick='createPriceDisplay()'>CaRT <span class = 'glyphicon glyphicon-shopping-cart'></span></a></li>");
 	$("#userArea").append("<li id='settingsNav'><a data-toggle ='modal' data-target='#settingsModal' class = 'customFont'><span class = 'glyphicon glyphicon-cog'></span></a></li>");
 	
 	$("#myUsername").text(currentUser.Username);
 	$("#myEmail").text(currentUser.Email);
 }
-
 function addDesign(toCart) {
 	
 	if (activeUser === null)
@@ -180,7 +177,6 @@ function addDesign(toCart) {
 					// Update object
 					ember.child(key).update(activeUser);
 					
-					
 				}
 				
 			});
@@ -190,7 +186,6 @@ function addDesign(toCart) {
 	
 	
 }
-
 function needToLogin() {
 	
 	$('#myModal').modal('toggle'); // Turn off the main modal
