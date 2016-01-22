@@ -1,26 +1,27 @@
 /* ************************************************************************************************************************************************************************************** */
 body
 {
-	background-image: url("dude.png");
+	background-color: #FF6600;
 }
 body a.noDec ,a.noDec:hover
 {
 	text-decoration: none;
-	color: #666666;
+	color: #FFFFFF;
 }
 body a
 {
-	color: #DDDDDD;
+	color: #FFFFFF;
 	text-decoration: none;
 }
 body a:hover
 {
-	color: #666666;
+	color: #FFFFFF;
+	background-color: #FF6600;
 	text-decoration: none;
 }
 .noTea
 {
-	background-color: #FFFFFF;
+	background-color: #000000;
 }
 .notWhite
 {
@@ -30,6 +31,7 @@ body a:hover
 {
 	font-family: "mainFont";
 	font-size: 20px;
+	color: #FFFFFF;
 }
 .otherCustom
 {
@@ -40,17 +42,18 @@ body a:hover
 {
 	font-family: "mainFont";
 	font-size: 150%;
+	color: #FFFFFF;
 }
 
 @font-face
 {
 	font-family: customHeader;
-	src: url("head.ttf");
+	src: url("fonts/master_of_break.ttf");
 }
 @font-face
 {
 	font-family: mainFont;
-	src: url("fonts/Mean.ttf");
+	src: url("fonts/coolvet.ttf");
 }
 .whiteWell
 {
@@ -67,8 +70,7 @@ body a:hover
 .customDesignImg
 {
    padding: 10px;
-   border:1px solid #DDDDDD;
-   background-color:#FFFFFF;
+   background-color:#000000;
    margin-top: 4px;
    position: relative;
 }
@@ -90,6 +92,16 @@ body a:hover
 	color: #FF0000;
 	font-family: "mainFont";
 }
+h4, h2, h5
+{
+	color: #FFFFFF;
+}
+.mainHeaderFont
+{
+	font-family: "customHeader";
+	font-size: 200%;
+	color: #FFFFFF;
+}
 
 /* ************************************************************************************************************************************************************************************** */
 
@@ -102,71 +114,71 @@ body a:hover
 /* navbar */
 
 .navbar-default {
-    background-color: #FFFFFF;
+    background-color: #000000;
     border-color: none;
 }
 /* title */
 .navbar-default .navbar-brand {
-    color: #DDDDDD;
-	background-color: #FFFFFF;
+    color: #FFFFFF;
+	background-color: #000000;
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-    color: #FFFFFF;
+    color: #DDDDDD;
 	text-decoration: none;
-	background-color: #FFFFFF;
+	background-color: #DDDDDD;
 }
 /* link */
 .navbar-default .navbar-nav > li > a {
-    color: #DDDDDD;
+    color: #FFFFFF;
 	text-decoration: none;
-	background-color: #FFFFFF;
+	background-color: #000000;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-    color: #FFFFFF;
+    color: #000000;
 	text-decoration: none;
-	background-color: #FFFFFF;
+	background-color: #000000;
 }
 .navbar-default .navbar-nav > .active > a, 
 .navbar-default .navbar-nav > .active > a:hover, 
 .navbar-default .navbar-nav > .active > a:focus {
-    color: #DDDDDD;
-    background-color: #FFFFFF;
+    color: #FFFFFF;
+    background-color: #000000;
 	text-decoration: none;
 }
 .navbar-default .navbar-nav > .open > a, 
 .navbar-default .navbar-nav > .open > a:hover, 
 .navbar-default .navbar-nav > .open > a:focus {
-    color: #666666;
-    background-color: #DDDDDD;
+    color: #FFFFFF;
+    background-color: #FFFFFF;
 	text-decoration: none;
 }
 /* caret */
 .navbar-default .navbar-nav > .dropdown > a .caret {
-    border-top-color: #DDDDDD;
-    border-bottom-color: #DDDDDD;
+    border-top-color: #FFFFFF;
+    border-bottom-color: #FFFFFF;
 }
 .navbar-default .navbar-nav > .dropdown > a:hover .caret,
 .navbar-default .navbar-nav > .dropdown > a:focus .caret {
-    border-top-color: #DDDDDD;
-    border-bottom-color: #DDDDDD;
+    border-top-color: #FFFFFF;
+    border-bottom-color: #FFFFFF;
 	text-decoration: none;
 }
 .navbar-default .navbar-nav > .open > a .caret, 
 .navbar-default .navbar-nav > .open > a:hover .caret, 
 .navbar-default .navbar-nav > .open > a:focus .caret {
-    border-top-color: #DDDDDD;
-    border-bottom-color: #DDDDDD;
+    border-top-color: #FFFFFF;
+    border-bottom-color: #FFFFFF;
 	text-decoration: none;
 }
 /* mobile version */
 .navbar-default .navbar-toggle {
-    border-color: #DDDDDD;
+    border-color: #FFFFFF;
 }
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
-    background-color: #DDDDDD;
+    background-color: #FFFFFF;
 	text-decoration: none;
 }
 .navbar-default .navbar-toggle .icon-bar {
@@ -174,12 +186,12 @@ body a:hover
 }
 @media (max-width: 767px) {
     .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-        color: #FFFFFF;
+        color: #000000;
 		text-decoration: none;
     }
     .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
     .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
-        color: #DDDDDD;
+        color: #000000;
 		text-decoration: none;
     }
 }
@@ -200,8 +212,8 @@ body a:hover
 }
  
 .btn-primary {
-    background: #666666;
-    color: #666666;
+    background: #FFFFFF;
+    color: #FFFFFF;
 }
  
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
@@ -209,7 +221,7 @@ body a:hover
 }
  
 .btn-primary:active, .btn-primary.active {
-    background: #007299;
+    background: #FFFFFF;
     box-shadow: none;
 }
 
@@ -219,43 +231,43 @@ body a:hover
 }
 
 .btn-primary.outline {
-    border: 2px solid #666666;
-    color: #666666;
+    border: 2px solid #FFFFFF;
+    color: #FFFFFF;
 }
 
 .btn-primary.outline:hover, .btn-primary.outline:focus, .btn-primary.outline:active, .btn-primary.outline.active, .open > .dropdown-toggle.btn-primary {
-    color: #DDDDDD;
-    border-color: #DDDDDD;
+    color: #FFFFFF;
+    border-color: #FFFFFF;
 }
 .btn-primary.outline:active, .btn-primary.outline.active {
-    border-color: #DDDDDD;
-    color: #DDDDDD;
+    border-color: #FFFFFF;
+    color: #FFFFFF;
     box-shadow: none;
 }
 
 /* ************************************************************************************************************************************************************************************** */
 
 .modalBack.modal-content{
-    background-image: url("dude.png");
+    background-color: #000000;
 }
 
 .modalBack.modal-header{
-    background-image: url("dude.png");
+    background-color: #FF6600;
 }
 
 .modalBack.modal-footer{
-    background-image: url("dude.png");
+    background-color: #FF6600
 }
 
 #myEmail
 {
-	color: #666666;
+	color: #FFFFFF;
 	font-family: "mainFont";
 	font-size: 150%;
 }
 #myUsername
 {
-	color: #666666;
+	color: #FFFFFF;
 	font-family: "mainFont";
 	font-size: 150%;
 }

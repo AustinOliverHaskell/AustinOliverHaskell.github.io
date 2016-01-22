@@ -231,6 +231,14 @@ function changeDesign(text) {
 	{
 		img.attr("src","images/Designs/trek.png");
 	}
+	else if (text === "Starbucks")
+	{
+		img.attr("src","images/Designs/starbucks.png");
+	}
+	else if (text === "Cokacola")
+	{
+		img.attr("src","images/Designs/coke.png");
+	}
 	
 	
 	//console.log("IT GOT THERE");
@@ -368,7 +376,7 @@ function createThumbnail(obj) {
 }
 function createPriceDisplay() {
 	
-	if(activeUser.cart.length !== 0)
+	if(activeUser.cart[0] !== 0)
 	{
 		$(".cartList").remove();
 		var tempTotal = 0;
@@ -386,14 +394,20 @@ function createPriceDisplay() {
 	else
 	{
 		$(".cartList").remove();
-		$("#priceTable").append("<li class='customFont cartList'>Cart IS EmPty :( </li>");
+		$("#priceTable").append("<li class='customFont cartList'>Cart is Empty :( </li>");
 	}
 }
 function clearCart() {
-	for (var i = 0; i < activeUser.cart.length; i++)
+	
+	var len = activeUser.cart.length;
+	
+	for (var i = 0; i <= len; i++)
 	{
 		activeUser.cart.pop();
+		len--;
 	}
+	
+	activeUser.cart[0] = 0;
 	
 	$(".cartList").remove();
 	$('#cartModal').modal('toggle');
