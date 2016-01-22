@@ -62,8 +62,8 @@ function login(fromSign){
 		if (user !== null)
 		{
 			// Magic goes here
-			//$('#loginModal').modal('toggle');
-			changePage(user);
+			$('#loginModal').modal('toggle');
+			changePage(activeUser);
 			console.log("Login Succesful!")
 			
 			activeUser = new Object;
