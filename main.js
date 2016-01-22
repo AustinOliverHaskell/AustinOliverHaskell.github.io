@@ -368,9 +368,14 @@ function createThumbnail(obj) {
 }
 function createPriceDisplay() {
 	
-	for(var i = 0; i < activeUser.cart.length; i++)
+	if(activeUser.cart.length === 0)
 	{
-		$("#priceTable").append("<li class='customFont'>" + activeUser.cart[i].Design +" - " + activeUser.cart[i].Color + " "+ activeUser.cart[i].Type + " " + activeUser.cart[i].Size + " - Cost: $" + activeUser.cart[i].Price + "</li>")
+		$(".cartList").remove();
+		
+		for(var i = 0; i < activeUser.cart.length; i++)
+		{
+			$("#priceTable").append("<li class='customFont cartList'>" + activeUser.cart[i].Design +" - " + activeUser.cart[i].Color + " "+ activeUser.cart[i].Type + " " + activeUser.cart[i].Size + " - Cost: $" + activeUser.cart[i].Price + "</li>");
+		}
 	}
 }
 
