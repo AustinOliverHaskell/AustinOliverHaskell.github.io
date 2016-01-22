@@ -128,9 +128,9 @@ function changePage(currentUser) {
 	$("#loginNav").remove();
 	$("#signupNav").remove();
 	
-	$("#userArea").append("<li id='signupNav'><a data-toggle ='modal' data-target='#loginModal' class = 'customFont'>DashBOaRd <span class = 'glyphicon glyphicon-dashboard'></span></a></li>");
-	$("#userArea").append("<li id='signupNav'><a data-toggle ='modal' data-target='#cartModal' class = 'customFont'>CaRT <span class = 'glyphicon glyphicon-shopping-cart'></span></a></li>");
-	$("#userArea").append("<li id='signupNav'><a data-toggle ='modal' data-target='#settingsModal' class = 'customFont'><span class = 'glyphicon glyphicon-cog'></span></a></li>");
+	$("#userArea").append("<li id='dashNav'><a data-toggle ='modal' data-target='#loginModal' class = 'customFont'>DashBOaRd <span class = 'glyphicon glyphicon-dashboard'></span></a></li>");
+	$("#userArea").append("<li id='cartNav'><a data-toggle ='modal' data-target='#cartModal' class = 'customFont' onclick='createPriceDisplay()'>CaRT <span class = 'glyphicon glyphicon-shopping-cart'></span></a></li>");
+	$("#userArea").append("<li id='settingsNav'><a data-toggle ='modal' data-target='#settingsModal' class = 'customFont'><span class = 'glyphicon glyphicon-cog'></span></a></li>");
 	
 	$("#myUsername").text(currentUser.Username);
 	$("#myEmail").text(currentUser.Email);
@@ -138,55 +138,63 @@ function changePage(currentUser) {
 
 function addDesign(toCart) {
 	
-	ember.once("value", function(snapshot){
-		
-		
-		
-		snapshot.forEach(function(childSnapshot){
-			
-			var tempUser = childSnapshot.val();
-			
-			if(tempUser.Username === activeUser.Username) // Found User that we want to update
-			{
-				var newOrder = getAllValues();
+	if (activeUser === null)
+	{
+		needToLogin();
+	}
+	else
+	{
+		ember.once("value", function(snapshot){
+			snapshot.forEach(function(childSnapshot){
 				
-				// Put it where it needs to go
-				if (toCart === true)
+				var tempUser = childSnapshot.val();
+				
+				if(tempUser.Username === activeUser.Username) // Found User that we want to update
 				{
-					if ((activeUser.cart.length === 1) && (activeUser.cart[0] === 0))
+					var newOrder = getAllValues();
+					
+					// Put it where it needs to go
+					if (toCart === true)
 					{
-						activeUser.cart[0] = newOrder;
+						if ((activeUser.cart.length === 1) && (activeUser.cart[0] === 0))
+						{
+							activeUser.cart[0] = newOrder;
+						}
+						else
+						{
+							activeUser.cart.push(newOrder);
+						}
 					}
 					else
 					{
-						activeUser.cart.push(newOrder);
-					}
+						if ((activeUser.Designs.length === 1) && (activeUser.Designs[0] === 0))
+						{
+							activeUser.Designs[0] = newOrder;
+						}
+						else
+						{
+							activeUser.Designs.push(newOrder);
+						}
+					}	
+					
+					// Update object
+					ember.child(key).update(activeUser);
+					
+					
 				}
-				else
-				{
-					if ((activeUser.Designs.length === 1) && (activeUser.Designs[0] === 0))
-					{
-						activeUser.Designs[0] = newOrder;
-					}
-					else
-					{
-						activeUser.Designs.push(newOrder);
-					}
-				}	
 				
-				// Update object
-				ember.child(key).update(activeUser);
-				
-				
-			}
+			});
 			
 		});
-		
-	});
-	
+	}
 	
 	
 }
 
-
+function needToLogin() {
+	
+	$('#myModal').modal('toggle'); // Turn off the main modal
+	$('#loginModal').modal('toggle'); // Turn on the signup modal
+	
+}
 

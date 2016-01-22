@@ -265,7 +265,7 @@ function getAllValues() {
 	var tempColor = $("#displayImg").attr("shirtColor");
 	var tempQty = $("#Quantity").val();
 	var tempSize = $("#chosenSize").val();
-	var tempTotalPrice = $("#total").val();
+	var tempTotalPrice = $("#total").text();
 	
 	/*
 	console.log("Img color: "+color.attr("shirtColor"));
@@ -333,31 +333,46 @@ function updatePricing() {
 	{
 		count.text(qty.val());
 		price.text("15.00");
-		total.text("$"+qty.val()*15);
+		total.text(qty.val()*15);
 	}
 	else if (shirtType.val() === "Short Sleeve")
 	{
 		count.text(qty.val());
 		price.text("12.00");
-		total.text("$"+qty.val()*12);
+		total.text(qty.val()*12);
 	}
 	else if (shirtType.val() === "Hoodie")
 	{
 		count.text(qty.val());
 		price.text("22.00");
-		total.text("$"+qty.val()*22);
+		total.text(qty.val()*22);
 	}
 	else if (shirtType.val() === "VNeck")
 	{
 		count.text(qty.val());
 		price.text("14.00");
-		total.text("$"+qty.val()*14);
+		total.text(qty.val()*14);
 	}
 	
 }
+function createThumbnail(obj) {
+	
+	$("#dashBody").append("<div class = 'whiteWell Well'><img src='images/blank_shirts/white.jpg' class='img-responsive'></div>");
 
-
-
+	
+	
+	
+	
+	
+	
+}
+function createPriceDisplay() {
+	
+	for(var i = 0; i < activeUser.cart.length; i++)
+	{
+		$("#priceTable").append("<li class='customFont'>" + activeUser.cart[i].Design +" - " + activeUser.cart[i].Color + " "+ activeUser.cart[i].Type + " " + activeUser.cart[i].Size + " - Cost: $" + activeUser.cart[i].Price + "</li>")
+	}
+}
 
 
 
