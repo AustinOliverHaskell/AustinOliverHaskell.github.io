@@ -1,0 +1,30 @@
+body{
+	background-color: #333333;
+}
+@font-face {
+    font-family: titleFont;
+    src: url(fonts/titleFont.ttf);
+}
+h1{
+	font-family: titleFont;
+	color: #FFFFFF;
+}
+hr{
+	color: #ffffff;
+	width: 99%;
+	margin-left: 0%;
+}
+
+p, h2 {
+	color: #FFFFFF;
+	font-family: Helvetica;
+}
+
+img {
+	width: 40%;
+}
+
+li {
+	font-family: Helvetica;
+	color: #ffffff;
+}

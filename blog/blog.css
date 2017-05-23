@@ -1,0 +1,60 @@
+body
+{
+	background-color: #333333;
+	margin:0px;
+	padding:0px;
+}
+
+@font-face 
+{
+	font-family: displayFont;
+	src: url('../fonts/EDITION.ttf');
+}
+
+@font-face
+{
+	font-family: bodyFont;
+	src: url('fonts/EDITION.ttf');
+}
+
+@font-face
+{
+	font-family: socialMedia;
+	src: url('../fonts/Simple_Line_Icons.ttf');
+}
+
+#menuBar
+{
+	width: 100%;
+	height: 50px;
+	background-color: #FFFFFF;
+	animation: fadein 1s;
+	animation-timing-function: ease-in;
+	position: absolute;
+}
+
+.logo
+{
+	height: 200%;
+	animation: swoopin 1s;
+	animation-timing-function: ease-in-out;
+}
+
+.social
+{
+	font-size: 30px;
+	padding: 10px;
+
+	color: #333333;
+	float: right;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes swoopin {
+	from { padding-top:  50px; }
+	to   { padding-top:   0px; }
+}
