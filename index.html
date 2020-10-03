@@ -1,69 +1,8 @@
 <html>
-    <head>
-        <title>BINGO!</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.1.1/jspdf.umd.min.js"></script>
-        <script src="https://unpkg.com/jspdf-autotable@3.5.13/dist/jspdf.plugin.autotable.js"></script>
-        <script src="tiles.js"></script>
-        <script src="bingo.js"></script>
-        <link rel="stylesheet" href="main.css">
-    </head>
+    <head>Haskell's Links</head>
     <body>
-        <table id="bingo_board">
-            <tr>
-                <th>B</th>
-                <th>I</th>
-                <th>N</th>
-                <th>G</th>
-                <th>O</th>
-            </tr>
-            <tr>
-                <td>TILE</td>
-                <td>TILE</td>
-                <td>TILE</td>
-                <td>TILE</td>
-                <td>TILE</td>
-            </tr>
-            <tr>
-                <td>TILE</td>
-                <td>TILE</td>
-                <td>TILE</td>
-                <td>TILE</td>
-                <td>TILE</td>
-            </tr>
-            <tr>
-                <td>TILE</td>
-                <td>TILE</td>
-                <td>FREE SPACE</td>
-                <td>TILE</td>
-                <td>TILE</td>
-            </tr>
-            <tr>
-                <td>TILE</td>
-                <td>TILE</td>
-                <td>TILE</td>
-                <td>TILE</td>
-                <td>TILE</td>
-            </tr>
-            <tr>
-                <td>TILE</td>
-                <td>TILE</td>
-                <td>TILE</td>
-                <td>TILE</td>
-                <td>TILE</td>
-            </tr>
-        </table>
-
-        <div id="controls">
-            <button type="button" onclick="switchBetweenP_AndVP()" id="changeBttn">Switch to Vice President Board</button>
-            <button type="button" onclick="updateTable('bingo_board')">New Board</button>
-            <!--<button type="button" onclick="makePDF()">Download As PDF</button>-->
-        </div>
-
-        <script type="text/javascript">
-            $( document ).ready(function() {
-                updateTable("bingo_board");
-            });
-        </script>
+        <ul>
+            <li><a href="austinoliverhaskell.github.com/DebateBingo/index.html">Presidential Debate Bingo Generator</a></li>
+          </ul>
     </body>
 </html>
