@@ -3,12 +3,14 @@
         <title>BINGO!</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.1.1/jspdf.umd.min.js"></script>
-        <script src="https://unpkg.com/jspdf-autotable@3.5.13/dist/jspdf.plugin.autotable.js"></script>
         <script src="tiles.js"></script>
         <script src="bingo.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu">
         <link rel="stylesheet" href="main.css">
     </head>
     <body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/TableExport/5.2.0/js/tableexport.min.js"></script>
+        <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
         <table id="bingo_board">
             <tr>
                 <th>B</th>
@@ -54,16 +56,48 @@
             </tr>
         </table>
 
+        </br>
+
         <div id="controls">
             <button type="button" onclick="switchBetweenP_AndVP()" id="changeBttn">Switch to Vice President Board</button>
             <button type="button" onclick="updateTable('bingo_board')">New Board</button>
-            <!--<button type="button" onclick="makePDF()">Download As PDF</button>-->
+            <!--<button type="button" id="export">Save as PNG</button>-->
         </div>
 
         <script type="text/javascript">
             $( document ).ready(function() {
+                console.log("Document Ready!");
+
                 updateTable("bingo_board");
+
+                $('#export').on('click', function() { exportTable(""); });
             });
+
+            /* Shamelessly taken from SO, https://stackoverflow.com/questions/38425931/download-table-as-png-using-jquery */
+            function exportTable(id) {
+                html2canvas($('bingo_board'), {
+                    onrendered: function(canvas) {                                      
+
+                        var saveAs = function(uri, filename) {
+                            var link = document.createElement('a');
+                            if (typeof link.download === 'string') {
+                                document.body.appendChild(link); // Firefox requires the link to be in the body
+                                link.download = filename;
+                                link.href = uri;
+                                link.click();
+                                document.body.removeChild(link); // remove the link when done
+                            } else {
+                                location.replace(uri);
+                            }
+                        };
+
+                        var img = canvas.toDataURL("image/png"),
+                            uri = img.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
+
+                        saveAs(uri, 'tableExport.png');
+                    }
+                });
+            }
         </script>
     </body>
 </html>

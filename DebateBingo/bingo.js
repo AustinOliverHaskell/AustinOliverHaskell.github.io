@@ -59,3 +59,4 @@ function switchBetweenP_AndVP() {
     isOnPresidentTiles = !isOnPresidentTiles;
     updateTable("bingo_board");
 }
+
