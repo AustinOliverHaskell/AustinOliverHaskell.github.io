@@ -22,6 +22,7 @@ var base_tiles = [
     "Anything about the Christian Faith mentioned",
     "Anything about the Muslim Faith mentioned",
     "Anything about the Jewish Faith mentioned",
+    "Canidate's religious beliefs mentioned (By them or by opponent)",
 
     /* Tiles about Canidates */
     "Canidate mentions their children",
@@ -71,8 +72,9 @@ var base_tiles = [
 var vice_presidents = [
     "Kamala Harris' history as an Attorney brought up",
     "Mike Pense's history in the House brought up",
+    "Mike Pense's history as Governor brought up",
     "Kamala Harris says 'Fake News'",
-    "Mike Pense says 'Fake News'",
+    "Mike Pense says 'Fake News'"
 ];
 
 var presidents = [
@@ -90,5 +92,6 @@ var presidents = [
     "Biden's senate record gets brought up",
     "Any show that Trump has appeared in mentioned",
     "Biden rides on Obama success",
-    "Trump questions mental fitness of Biden"
+    "Trump questions mental fitness of Biden",
+    "Trump's COVID diagnosis mentioned"
 ];

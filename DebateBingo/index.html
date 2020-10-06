@@ -59,45 +59,55 @@
         </br>
 
         <div id="controls">
-            <button type="button" onclick="switchBetweenP_AndVP()" id="changeBttn">Switch to Vice President Board</button>
-            <button type="button" onclick="updateTable('bingo_board')">New Board</button>
+            <button type="button" class="unselectable_text lockableControl" onclick="switchBoards()" id="changeBttn">Switch to Vice President Board</button>
+            <button type="button" class="unselectable_text lockableControl" onclick="newBoard()">New Board</button>
+            <button type="button" class="unselectable_text lockableControl" onclick="clearSelected()">Clear</button>
+
+            <input type="checkbox" class="unselectable_text" id="lockControls" name="lockControls" value="Lock">
+            <label for="lockControls" class="unselectable_text">Lock Buttons</label><br>
             <!--<button type="button" id="export">Save as PNG</button>-->
         </div>
 
         <script type="text/javascript">
             $( document ).ready(function() {
-                console.log("Document Ready!");
-
                 updateTable("bingo_board");
-
-                $('#export').on('click', function() { exportTable(""); });
             });
 
-            /* Shamelessly taken from SO, https://stackoverflow.com/questions/38425931/download-table-as-png-using-jquery */
-            function exportTable(id) {
-                html2canvas($('bingo_board'), {
-                    onrendered: function(canvas) {                                      
+            $('td').click(function(e) {
+                if ($(e.target).text() == 'FREE SPACE') {
+                    return;
+                }
 
-                        var saveAs = function(uri, filename) {
-                            var link = document.createElement('a');
-                            if (typeof link.download === 'string') {
-                                document.body.appendChild(link); // Firefox requires the link to be in the body
-                                link.download = filename;
-                                link.href = uri;
-                                link.click();
-                                document.body.removeChild(link); // remove the link when done
-                            } else {
-                                location.replace(uri);
-                            }
-                        };
+                var item_class = $(e.target).attr('class');
+                if (item_class === 'selected') {
+                    $(e.target).attr('class', 'unselected');
+                } else {
+                    $(e.target).attr('class', 'selected');
+                }
+            });
 
-                        var img = canvas.toDataURL("image/png"),
-                            uri = img.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
+            $('#lockControls').click(function() {
+                if ($("#lockControls").prop("checked") == true) {
+                    $('.lockableControl').prop('disabled', true);
+                } else {
+                    $('.lockableControl').prop('disabled', false);
+                }
+            });
 
-                        saveAs(uri, 'tableExport.png');
-                    }
-                });
+            function switchBoards() {
+                clearSelected();
+                switchBetweenP_AndVP();
             }
+
+            function newBoard() {
+                clearSelected();
+                updateTable('bingo_board');
+            }
+
+            function clearSelected() {
+                $('td').removeClass('selected');
+            }
+
         </script>
     </body>
 </html>

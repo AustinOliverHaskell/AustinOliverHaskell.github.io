@@ -10,11 +10,26 @@ tr, td, th {
     height: 16%;
     text-align: center;
     font-family: 'Ubuntu';
+
+    /* if a user clicks rapidly we dont want the table contents to highlight */
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
 }
 
 th {
     font-size: x-large;
     background-color: dimgray;
+    color: white;
+}
+
+.unselected {
+    background-color: white;
+}
+
+.selected {
+    background-color: black;
     color: white;
 }
 
@@ -27,6 +42,13 @@ th {
     margin-left: 20px;
 }
 
+.unselectable_text {
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+
 button {
     font-family: 'Ubuntu';
     background-color: #e7e7e7;
@@ -37,4 +59,11 @@ button {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-  }
+
+
+}
+
+input, label {
+    font-family: 'Ubuntu';
+    font-size: 16px;
+}
