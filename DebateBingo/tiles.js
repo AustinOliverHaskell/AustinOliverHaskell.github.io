@@ -12,6 +12,9 @@ var base_tiles = [
     "Impeachment is mentioned",
     "Filibuster is mentioned",
     "Adding seats to The Supreme Court mentioned", 
+    "Polling numbers mentioned",
+    "Electoral College mentioned",
+    "State is said to be either 'Blue' or 'Red'",
 
     /* Tiles about the Debate */
     "Canidate dodges the question",
@@ -52,12 +55,14 @@ var base_tiles = [
     "'Vaccine' is said",
     "Masks are mentioned in a negative way",
     "Dr. Fauci mentioned",
+    "Trump having Covid mentioned",
 
     /* Race, Sexuality */
     "'White Supremacy'",
     "LGBTQIA+ Issues",
     "BLM mentioned",
     "'Defund the police'",
+    "'Racism'",
 
     /* Misc */
     "Antifa mentioned",
@@ -65,7 +70,8 @@ var base_tiles = [
     "Namecalling (Sleepy Joe, Cryin' chuck, etc)",
     "Trumps tax returns mentioned",
     "Trump's wall is mentioned",
-    "You experiance sensory overload from them yelling"
+    "You experiance sensory overload from them yelling",
+    "Social Media mentioned by name (Facebook, Twitter, etc)"
 ];
 
 
@@ -74,7 +80,8 @@ var vice_presidents = [
     "Mike Pense's history in the House brought up",
     "Mike Pense's history as Governor brought up",
     "Kamala Harris says 'Fake News'",
-    "Mike Pense says 'Fake News'"
+    "Mike Pense says 'Fake News'",
+    "Canidate says the other canidates' name incorrectly"
 ];
 
 var presidents = [
