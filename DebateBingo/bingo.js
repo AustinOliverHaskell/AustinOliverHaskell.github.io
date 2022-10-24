@@ -1,5 +1,6 @@
 var tiles = base_tiles;
-var isOnPresidentTiles = true;
+var displayed_tiles = [];
+var selected_tiles = [];
 
 /* Don't come for me for the quality of this code, I made it on the couch watching youtube. */
 
@@ -13,9 +14,11 @@ function shuffle() {
     }
 }
 
-function updateTable(id) {
-    shuffle();
+function new_board() {
+    displayed_tiles = select_tiles_for_board();
+}
 
+function update_table(id) {
     var table = document.getElementById(id);
 
     var tileIndex = 0;
@@ -23,10 +26,16 @@ function updateTable(id) {
     {
         for (var col = 0; col < 5; col++)
         {
-            table.rows[row].cells[col].innerText = tiles[tileIndex];
+            table.rows[row].cells[col].innerText = displayed_tiles[tileIndex];
 
-            if (col == 2 && row == 3)
-                table.rows[row].cells[col].innerText = "FREE SPACE";
+            table.rows[row].cells[col].setAttribute('class', 'unselected');
+
+            for (var selected_tile_index = 0; selected_tile_index < selected_tiles.length; selected_tile_index++) {
+                if (((row * 5) - 5 + col) == selected_tiles[selected_tile_index]) {
+                    table.rows[row].cells[col].setAttribute('class', 'selected');
+                    break;
+                } 
+            }
 
             tileIndex++;
             if (tileIndex >= tiles.length)
@@ -35,28 +44,79 @@ function updateTable(id) {
     }
 }
 
-function makePDF() {
+function select_tiles_for_board() {
+    shuffle();
+
+    var random_tiles = [];
+    for (var i = 0; i < 25; i++) {
+        if (i === 12) {
+            random_tiles.push("FREE SPACE");
+        } else {
+            random_tiles.push(tiles[i]);
+        }
+    }
+
+    return random_tiles; 
+}
+
+function make_pdf() {
     const doc = new jsPDF();
     doc.autoTable({ html: '#bingo_board' });
     doc.save('bingo.pdf')
 }
 
-function switchBetweenP_AndVP() {
+function swap_board_type(board_type) {
 
-    var bttn = document.getElementById("changeBttn");
+    console.log("Change to: " + board_type);
 
-    if (isOnPresidentTiles)
+    switch (board_type)
     {
-        tiles = base_tiles.concat(vice_presidents);
-        bttn.innerText = "Switch to President Board";
-    }
-    else 
-    {
-        tiles = base_tiles.concat(presidents);
-        bttn.innerText = "Switch to Vice President Board";
+        case "fetterman_v_oz":
+            tiles = base_tiles.concat(fetterman_vs_oz);
+            break;
+        case "mandela_v_johnson":
+            tiles = base_tiles.concat(mandela_vs_johnson);
+            break;
+        case "pence_v_kamala":
+            tiles = base_tiles.concat(kamala_vs_pence);
+            break;
+        case "trump_v_biden":
+        default: 
+            tiles = base_tiles.concat(trump_vs_biden);
     }
 
-    isOnPresidentTiles = !isOnPresidentTiles;
-    updateTable("bingo_board");
+    update_table("bingo_board");
 }
 
+function clear_selected() {
+    selected_tiles = [];
+    update_table("bingo_board");
+}
+
+function toggle_selected_index(_index) {
+    if (selected_tiles.includes(_index)) {
+        selected_tiles = selected_tiles.filter((item => item != _index));
+    } else {
+        selected_tiles.push(_index);
+    }
+
+    console.log("Selected tiles: " + selected_tiles)
+
+    update_table('bingo_board');
+}
+
+function save_board_to_cookie() {
+    console.log("Saving cookie");
+    document.cookie = ("tiles=" + "some_title" + ";path=/"); 
+    document.cookie = ("selected_tiles=" + selected_tiles + ";path=/");
+}
+
+function load_from_cookie() {
+    let cookie = document.cookie;
+
+    console.log("Cookie is -> " + cookie);
+}
+
+function clear_cookies() {
+
+}

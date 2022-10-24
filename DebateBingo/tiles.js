@@ -75,7 +75,7 @@ var base_tiles = [
 ];
 
 
-var vice_presidents = [
+var kamala_vs_pence = [
     "Kamala Harris' history as an Attorney brought up",
     "Mike Pense's history in the House brought up",
     "Mike Pense's history as Governor brought up",
@@ -84,7 +84,7 @@ var vice_presidents = [
     "Canidate says the other canidates' name incorrectly"
 ];
 
-var presidents = [
+var trump_vs_biden = [
     "Trump says 'Fake news'",
     "Biden says 'Fake news'",
     "Moderator fact checks either Trump or Biden during debate",
@@ -101,4 +101,10 @@ var presidents = [
     "Biden rides on Obama success",
     "Trump questions mental fitness of Biden",
     "Trump's COVID diagnosis mentioned"
+];
+
+var mandela_vs_johnson = [];
+var fetterman_vs_oz = [
+    "Doctor Oz Show is mentioned",
+    "Fetterman's stroke is mentioned"
 ];

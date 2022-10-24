@@ -7,61 +7,82 @@
         <script src="bingo.js"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu">
         <link rel="stylesheet" href="main.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
     </head>
     <body>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/TableExport/5.2.0/js/tableexport.min.js"></script>
         <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-        <table id="bingo_board">
-            <tr>
-                <th>B</th>
-                <th>I</th>
-                <th>N</th>
-                <th>G</th>
-                <th>O</th>
-            </tr>
-            <tr>
-                <td>TILE</td>
-                <td>TILE</td>
-                <td>TILE</td>
-                <td>TILE</td>
-                <td>TILE</td>
-            </tr>
-            <tr>
-                <td>TILE</td>
-                <td>TILE</td>
-                <td>TILE</td>
-                <td>TILE</td>
-                <td>TILE</td>
-            </tr>
-            <tr>
-                <td>TILE</td>
-                <td>TILE</td>
-                <td id="free_space">FREE SPACE</td>
-                <td>TILE</td>
-                <td>TILE</td>
-            </tr>
-            <tr>
-                <td>TILE</td>
-                <td>TILE</td>
-                <td>TILE</td>
-                <td>TILE</td>
-                <td>TILE</td>
-            </tr>
-            <tr>
-                <td>TILE</td>
-                <td>TILE</td>
-                <td>TILE</td>
-                <td>TILE</td>
-                <td>TILE</td>
-            </tr>
-        </table>
+        <div id="board_container">
+            <table id="bingo_board">
+                <tr>
+                    <th>B</th>
+                    <th>I</th>
+                    <th>N</th>
+                    <th>G</th>
+                    <th>O</th>
+                </tr>
+                <tr>
+                    <td data-index="0">TILE</td>
+                    <td data-index="1">TILE</td>
+                    <td data-index="2">TILE</td>
+                    <td data-index="3">TILE</td>
+                    <td data-index="4">TILE</td>
+                </tr>
+                <tr>
+                    <td data-index="5">TILE</td>
+                    <td data-index="6">TILE</td>
+                    <td data-index="7">TILE</td>
+                    <td data-index="8">TILE</td>
+                    <td data-index="9">TILE</td>
+                </tr>
+                <tr>
+                    <td data-index="10">TILE</td>
+                    <td data-index="11">TILE</td>
+                    <td data-index="12" id="free_space">FREE SPACE</td>
+                    <td data-index="13">TILE</td>
+                    <td data-index="14">TILE</td>
+                </tr>
+                <tr>
+                    <td data-index="15">TILE</td>
+                    <td data-index="16">TILE</td>
+                    <td data-index="17">TILE</td>
+                    <td data-index="18">TILE</td>
+                    <td data-index="19">TILE</td>
+                </tr>
+                <tr>
+                    <td data-index="20">TILE</td>
+                    <td data-index="21">TILE</td>
+                    <td data-index="22">TILE</td>
+                    <td data-index="23">TILE</td>
+                    <td data-index="24">TILE</td>
+                </tr>
+            </table>
+        <div>
 
-        </br>
+        <div id="desktop_controls">
+            <select name="board_type" id="board_type" onchange="switch_board_types()">
+                <option value="trump_v_biden">Trump V Biden</option>
+                <option value="pence_v_kamala">Pence V Kamala</option>
+                <option value="mandela_v_johnson">Mandela V Johnson</option>
+                <option value="fetterman_v_oz">Fetterman V Oz</option>
+            </select>
+            <button type="button" class="unselectable_text lockableControl" onclick="make_new_board()">New Board</button>
+            <button type="button" class="unselectable_text lockableControl" onclick="clear_selections()">Clear</button>
 
-        <div id="controls">
-            <button type="button" class="unselectable_text lockableControl" onclick="switchBoards()" id="changeBttn">Switch to Vice President Board</button>
-            <button type="button" class="unselectable_text lockableControl" onclick="newBoard()">New Board</button>
-            <button type="button" class="unselectable_text lockableControl" onclick="clearSelected()">Clear</button>
+            <input type="checkbox" class="unselectable_text" id="lockControls" name="lockControls" value="Lock">
+            <label for="lockControls" class="unselectable_text">Lock Buttons</label><br>
+            <!--<button type="button" id="export">Save as PNG</button>-->
+        </div>
+
+        <div id="mobile_controls">
+            <select name="board_type" id="board_type" onchange="switch_board_types()">
+                <option value="trump_v_biden">Trump V Biden</option>
+                <option value="pence_v_kamala">Pence V Kamala</option>
+                <option value="mandela_v_johnson">Mandela V Johnson</option>
+                <option value="fetterman_v_oz">Fetterman V Oz</option>
+            </select>
+            <button type="button" class="unselectable_text lockableControl" onclick="make_new_board()">New Board</button>
+            <button type="button" class="unselectable_text lockableControl" onclick="clear_selections()">Clear</button>
 
             <input type="checkbox" class="unselectable_text" id="lockControls" name="lockControls" value="Lock">
             <label for="lockControls" class="unselectable_text">Lock Buttons</label><br>
@@ -70,20 +91,15 @@
 
         <script type="text/javascript">
             $( document ).ready(function() {
-                updateTable("bingo_board");
+                make_new_board();
+                load_from_cookie();
             });
 
             $('td').click(function(e) {
-                if ($(e.target).text() == 'FREE SPACE') {
-                    return;
-                }
+                var index = $(e.target).attr('data-index');
 
-                var item_class = $(e.target).attr('class');
-                if (item_class === 'selected') {
-                    $(e.target).attr('class', 'unselected');
-                } else {
-                    $(e.target).attr('class', 'selected');
-                }
+                toggle_selected_index(index);
+                save_board_to_cookie();
             });
 
             $('#lockControls').click(function() {
@@ -94,18 +110,21 @@
                 }
             });
 
-            function switchBoards() {
-                clearSelected();
-                switchBetweenP_AndVP();
+            function switch_board_types() {
+                clear_selections();
+
+                var board_type = document.getElementById("board_type").value;
+
+                swap_board_type(board_type);
             }
 
-            function newBoard() {
-                clearSelected();
-                updateTable('bingo_board');
+            function make_new_board() {
+                new_board();
+                update_table('bingo_board');
             }
 
-            function clearSelected() {
-                $('td').removeClass('selected');
+            function clear_selections() {
+                clear_selected();
             }
 
         </script>
