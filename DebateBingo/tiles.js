@@ -127,5 +127,6 @@ var fetterman_vs_oz = [
     "Fetterman's stroke is mentioned",
     "Trump endorsements mentioned",
     "Crudite mentioned",
-    "Oz being called out for just moving to PA"
+    "Oz being called out for just moving to PA",
+    "'Pro-Murder' is said",
 ];
