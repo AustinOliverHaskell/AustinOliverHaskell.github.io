@@ -107,7 +107,7 @@ function toggle_selected_index(_index) {
 
 function save_board_to_cookie() {
     console.log("Saving cookie");
-    document.cookie = ("tiles=" + "some_title" + ";path=/"); 
+    document.cookie = ("tiles=" + displayed_tiles + ";path=/"); 
     document.cookie = ("selected_tiles=" + selected_tiles + ";path=/");
 }
 
