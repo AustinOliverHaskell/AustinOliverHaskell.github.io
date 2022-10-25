@@ -1,6 +1,7 @@
 var tiles = base_tiles;
 var displayed_tiles = [];
 var selected_tiles = [];
+var board_catagory = "trump_v_biden"; 
 
 /* Don't come for me for the quality of this code, I made it on the couch watching youtube. */
 
@@ -85,6 +86,8 @@ function swap_board_type(board_type) {
             tiles = base_tiles.concat(trump_vs_biden);
     }
 
+    board_catagory = board_type;
+
     update_table("bingo_board");
 }
 
@@ -125,16 +128,16 @@ function load_from_cookie() {
     let first_half = cookie_crumbs[0].split("=");
     let second_half = cookie_crumbs[1].split("=");
 
-    if (first_half[0] != "tiles") {
-        return;
+    if (first_half[0] == "tiles") {
+        tiles = first_half[1].split(',');
+        selected_tiles = second_half[1].split(',');
     }
 
-    if (second_half[0] != "selected_tiles") {
-        return;
+    if (second_half[0] == "tiles") {
+        tiles = second_half[1].split(',');
+        selected_tiles = first_half[1].split(',');
     }
 
-    tiles = first_half[1].split(',');
-    selected_tiles = second_half[1].split(',');
 }
 
 function clear_cookies() {
