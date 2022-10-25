@@ -7,6 +7,7 @@ var base_tiles = [
     "'Tax Cuts'",
     "Unemployment rates discussed",
     "Tariffs mentioned",
+    "Raising tax on billionares proposed",
 
     /* Tiles about Politics */
     "Impeachment is mentioned",
@@ -18,8 +19,10 @@ var base_tiles = [
 
     /* Tiles about the Debate */
     "Canidate dodges the question",
-    "Technical difficulties (Mic muted, lights go out, wrong camera shown, etc)",
+    "Technical difficulties (Mic muted | lights go out | wrong camera shown | etc)",
     "The Debate itself is mentioned",
+    "Canidate looks directly at camera",
+    "Canidate leavs the debate early",
 
     /* Tiles about Religion */
     "Anything about the Christian Faith mentioned",
@@ -40,13 +43,16 @@ var base_tiles = [
     "Question about running mate",
     "Question about The Supreme Court",
     "Question about the Environment",
+    "Question about immigration",
+    "Question about Schools",
+    "Question about Guns",
 
     /* Tiles about Places */
-    "Kenosha mentioned",
-    "Seattle mentioned",
     "China brought up unprompted",
+    "Ukraine Mentioned",
+    "Russia Mentioned", 
     "State mentioned by name",
-    "US territory mentioned by name (Guam, Puerto Rico, etc)", 
+    "US territory mentioned by name (Guam | Puerto Rico | etc)", 
 
     /* Covid */
     "Covid data is misrepresented",
@@ -63,15 +69,19 @@ var base_tiles = [
     "BLM mentioned",
     "'Defund the police'",
     "'Racism'",
+    "Abortion access mentioned",
 
     /* Misc */
     "Antifa mentioned",
     "'Fake News' network is mentioned by name",
-    "Namecalling (Sleepy Joe, Cryin' chuck, etc)",
+    "Namecalling (Sleepy Joe | Cryin' chuck | etc)",
     "Trumps tax returns mentioned",
     "Trump's wall is mentioned",
     "You experiance sensory overload from them yelling",
-    "Social Media mentioned by name (Facebook, Twitter, etc)"
+    "Social Media mentioned by name (Facebook | Twitter | etc)",
+    "Election integrety mentioned",
+    "Alt-right dog whisle",
+    "Any type of social media mentioned. (TikTok | Instagram | etc)"
 ];
 
 
@@ -85,6 +95,9 @@ var kamala_vs_pence = [
 ];
 
 var trump_vs_biden = [
+    "Kenosha mentioned",
+    "Seattle mentioned",
+
     "Trump says 'Fake news'",
     "Biden says 'Fake news'",
     "Moderator fact checks either Trump or Biden during debate",
@@ -103,8 +116,16 @@ var trump_vs_biden = [
     "Trump's COVID diagnosis mentioned"
 ];
 
-var mandela_vs_johnson = [];
+var mandela_vs_johnson = [
+    "Milwaukee mentioned by name",
+    "Ron Johnsons wealth is mentioned",
+    "PB&J Sandwiches mentioned"
+];
+
 var fetterman_vs_oz = [
     "Doctor Oz Show is mentioned",
-    "Fetterman's stroke is mentioned"
+    "Fetterman's stroke is mentioned",
+    "Trump endorsements mentioned",
+    "Crudite mentioned",
+    "Oz being called out for just moving to PA"
 ];

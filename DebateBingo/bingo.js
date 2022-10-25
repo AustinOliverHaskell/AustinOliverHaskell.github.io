@@ -125,8 +125,16 @@ function load_from_cookie() {
     let first_half = cookie_crumbs[0].split("=");
     let second_half = cookie_crumbs[1].split("=");
 
-    console.log("First -> " + first_half);
-    console.log("Second -> " + second_half);
+    if (first_half[0] != "tiles") {
+        return;
+    }
+
+    if (second_half[0] != "selected_tiles") {
+        return;
+    }
+
+    tiles = first_half[1].split(',');
+    selected_tiles = second_half[1].split(',');
 }
 
 function clear_cookies() {
