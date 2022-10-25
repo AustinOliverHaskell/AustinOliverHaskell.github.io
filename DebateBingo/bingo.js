@@ -115,6 +115,18 @@ function load_from_cookie() {
     let cookie = document.cookie;
 
     console.log("Cookie is -> " + cookie);
+
+    let cookie_crumbs = cookie.split(";");
+    if (cookie_crumbs.length < 2) {
+        console.log("Not enough crumbs! [" + cookie_crumbs.length + "]");
+        return; 
+    }
+
+    let first_half = cookie_crumbs[0].split("=");
+    let second_half = cookie_crumbs[1].split("=");
+
+    console.log("First -> " + first_half);
+    console.log("Second -> " + second_half);
 }
 
 function clear_cookies() {
