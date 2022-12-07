@@ -1,24 +1,28 @@
 <html>
 	<head>
 		<title>Austin Haskell</title>
-		<link rel="stylesheet" type="text/css" href="blog.css">	
-		<link rel="stylesheet" type="text/css" href="../fonts/simpleLineIcons.css">	
-		<script
-		  src="https://code.jquery.com/jquery-3.2.1.min.js"
-		  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-		  crossorigin="anonymous"></script>
-
+		<link rel="stylesheet" type="text/css" href="blog.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		
+
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 	</head>
 	<body>
-		<!-- Splash page background generated in backgroundScript.js -->
-		<div id="menuBar">
-			<img src="../logo.png" class="logo"/>
-			<div class="icon-social-linkedin social"></div>
-			<div class="icon-social-github social"></div>
+		<canvas id="background"></canvas>
+		<div id="main_content">
+			<div id="name_title">Austin Haskell</div>
+			<p class="subtitle">Software Engineer - Rust fanatic</p>
+			<p class="subtitle">I like to make things...</p>
+			<span class="material-symbols-outlined">
+				menu
+			</span>
 		</div>
+		<script>
 
+			document.addEventListener("DOMContentLoaded", draw_background());
 
+			function draw_background() {
+				var canvas = document.getElementById("background");
+			}
+		</script>
 	</body>
 </html>
