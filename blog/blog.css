@@ -1,6 +1,6 @@
 body
 {
-	background-color: #a8c4e0;
+	background-color: #eddac7;
 	margin:0px;
 	padding:0px;
 }
@@ -12,14 +12,18 @@ body
 }
 
 #main_content {
-	width: auto;
-	height: 80%;
+	width: 96%;
+	height: 91%;
 
 	border-style: solid;
-	border-color: #000000;
-	border-width: 1px;
+	border-color: #82776c;
+	border-width: 8px;
 
-	margin: 100px;
+	margin: 2%;
+
+	position: absolute;
+	top: 0px;
+	left: 0px;
 }
 
 #background {
@@ -35,6 +39,7 @@ body
 
 	padding: 20px;
 	font-family: main_font;
+	color: #82776c;
 
 	font-size: 114px;
 }
@@ -43,6 +48,22 @@ body
 	padding-left: 20px;
 
 	font-family: main_font;
+	color: #82776c;
 
 	font-size: 16px;
+}
+
+.fill_page {
+	height: 100%;
+	width: 100%;
+}
+
+#menu_button {
+	position: absolute;
+
+	background: none;
+	border-width: 0px;
+
+	top: 10px;
+	right: 10px;
 }
