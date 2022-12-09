@@ -119,3 +119,63 @@ body
 .homepage_links:hover {
 	font-size: 48px;
 }
+
+.article_title {
+	padding-left: 20px;
+
+	font-family: main_font;
+	color: #82776c;
+
+	font-size: 48px;
+	text-align: center;
+
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.article_hr {
+	color: #82776c;
+	border-color: #82776c;
+	width: 60%;
+	width: 60vw;
+}
+
+.article_link {
+	width: 100%;
+	color: #82776c;
+	font-size: 24px;
+	text-decoration: none;
+	font-family: main_font;
+}
+
+.article_link:hover {
+	width: 100%;
+	color: #82776c;
+	font-size: 32px;
+	text-decoration: none;
+	font-family: main_font;
+}
+
+.article_date {
+	width: 100%;
+	color: #807b77;
+	font-size: 12px;
+	text-decoration: none;
+	font-family: main_font;
+}
+
+#article_link_list {
+	padding-top: 20px;
+	padding-left: 50px;
+	width: 100%;
+}
+
+.article_link_row {
+	width: 100%;
+
+	height: auto;
+}
+
+.article_column {
+	width: 70%;
+}
