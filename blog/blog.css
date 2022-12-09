@@ -5,6 +5,18 @@ body
 	padding:0px;
 }
 
+@media only screen and (max-width: 1026px) { 
+  .desktop_only { 
+    display: none; 
+  } 
+}
+
+@media only screen and (min-width: 1026px) { 
+  .mobile_only { 
+    display: none; 
+  } 
+}
+
 @font-face 
 {
 	font-family: main_font;
@@ -41,7 +53,16 @@ body
 	left: 0px;
 }
 
-#name_title {
+#name_title_mobile {
+
+	padding: 20px;
+	font-family: main_font;
+	color: #82776c;
+
+	font-size: 64px;
+}
+
+#name_title_desktop {
 
 	padding: 20px;
 	font-family: main_font;
@@ -81,11 +102,7 @@ body
 	bottom: 0px;
 	right: 0px;
 
-	/*height: 40%;
-	height: 40vh;*/
-
 	height: auto;
-
 	width: auto;
 }
 
