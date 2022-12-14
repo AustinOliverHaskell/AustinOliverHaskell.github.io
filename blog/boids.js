@@ -3,8 +3,7 @@ const max_acceleration = 1;
 const sight_range = 100;
 const avoidance_range = 60;
 
-const max_avoidance_force = 4;
-const max_cohesian_force = 4; 
+const max_force = 4;
 
 class Boid {
 	constructor(position, velocity, acceleration, color) {
@@ -15,19 +14,28 @@ class Boid {
 		this.color        = color;
 	}
 
-	update(screen_width, screen_height, boid_list) {
+	update(screen_width, screen_height, boid_list, debug_print) {
 
 		this.acceleration = zero_vector();
 
 		var flockmates = this.look_for_flockmates(boid_list); 
-		var average_position_of_flockmates = this.calculate_average_position_of_flockmates(flockmates);
-		var average_heading_of_flockmates  = this.calculate_average_heading_of_flockmates(flockmates);
-		var avoidance_for_flockmates       = this.calculate_avoidance_of_flockmates(flockmates);
+		var cohesion_vector_of_flockmates   = this.calculate_cohesion_of_flockmates(flockmates);
+		var heading_vector_of_flockmates    = this.calculate_average_heading_vector_of_flockmates(flockmates);
+		var avoidance_vector_for_flockmates = this.calculate_avoidance_vector_of_flockmates(flockmates);
 
 		if (flockmates.length != 0)
 		{	
-			this.acceleration = this.acceleration.add(average_heading_of_flockmates).add(average_position_of_flockmates).add(avoidance_for_flockmates);
-			//this.acceleration = avoidance_for_flockmates; 
+			this.acceleration = avoidance_vector_for_flockmates; 
+			this.acceleration = this.acceleration.add(cohesion_vector_of_flockmates);
+			this.acceleration = this.acceleration.add(heading_vector_of_flockmates);
+
+			if (debug_print) {
+				console.log("Cohesian  Vector: " + cohesion_vector_of_flockmates.x + ", " + cohesion_vector_of_flockmates.y);
+				console.log("Heading   Vector: " + heading_vector_of_flockmates.x + ", " + heading_vector_of_flockmates.y);
+				console.log("Avoidance Vector: " + avoidance_vector_for_flockmates.x + ", " + avoidance_vector_for_flockmates.y);
+
+			}
+
 			this.acceleration = this.acceleration.clamp(max_acceleration);
 		}
 
@@ -70,7 +78,7 @@ class Boid {
 		return flockmates;
 	}
 
-	calculate_average_position_of_flockmates(flockmates) {
+	calculate_cohesion_of_flockmates(flockmates) {
 		var average_point = zero_vector();
 
 		if (flockmates.length == 0) {
@@ -84,12 +92,12 @@ class Boid {
 		average_point.x = average_point.x / flockmates.length; 
 		average_point.y = average_point.y / flockmates.length;
 
-		average_point = average_point.subtract(this.position).clamp(max_cohesian_force);
+		average_point = average_point.subtract(this.position).clamp(max_force);
 
 		return average_point;
 	}
 
-	calculate_average_heading_of_flockmates(flockmates) {
+	calculate_average_heading_vector_of_flockmates(flockmates) {
 		var average_heading = zero_vector();
 
 		if (flockmates.length == 0) {
@@ -106,7 +114,7 @@ class Boid {
 		return average_heading.subtract(this.velocity).clamp(max_velocity);
 	}
 
-	calculate_avoidance_of_flockmates(flockmates) {
+	calculate_avoidance_vector_of_flockmates(flockmates) {
 		var avoidance_vector = zero_vector(); 
 
 		if (flockmates.length == 0) {
@@ -120,15 +128,14 @@ class Boid {
 				continue;
 			}
 
-			var strength = distance_from_boid / avoidance_range;
-
 			var difference_vector = this.position.subtract(boid.position);
-			avoidance_vector = avoidance_vector.add(difference_vector);
+			avoidance_vector = avoidance_vector.add(difference_vector.divide_by_scalar(1 / distance_from_boid));
 		}
 
 		avoidance_vector = avoidance_vector.divide_by_scalar(flockmates.length);
 
-		return avoidance_vector;
+
+		return avoidance_vector.clamp(max_force);
 	}
 
 	draw(canvas) {

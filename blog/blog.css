@@ -127,8 +127,9 @@ body
 
 .homepage_links:hover {
 	font-size: 48px;
+	color: #66163a;
 
-	transition-property: font-size;
+	transition-property: font-size color;
   	transition-duration: 100ms;
 }
 
@@ -207,4 +208,9 @@ body
 	right: 40px;
 
   	opacity: 0;
+}
+
+.no_outline_button {
+	background: none;
+	border: none;
 }

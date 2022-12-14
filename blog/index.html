@@ -25,16 +25,21 @@
 			</div>
 		</div>
 
-		<div class="material-symbols-outlined" id="fullscreen_button" onclick="fullscreen_mode()">
+		<button class="material-symbols-outlined no_outline_button" id="fullscreen_button" onclick="fullscreen_mode()">
 			fullscreen
-		</div>
+		</button>
 
-		<div class="material-symbols-outlined" id="exit_fullscreen_button" onclick="fullscreen_mode()">
+		<button class="material-symbols-outlined no_outline_button" id="exit_fullscreen_button" onclick="fullscreen_mode()">
 			fullscreen_exit
-		</div>
+		</button>
 		<script>
 
-			document.addEventListener("DOMContentLoaded", draw_background());
+			document.addEventListener("DOMContentLoaded", main());
+
+			function main() {
+				draw_background();
+				fullscreen_mode();
+			}
 
 			var in_fullscreen_mode = false;
 
@@ -67,7 +72,7 @@
 			function draw_background() {
 
 				const time_between_simulation_ticks_in_ms = 50;
-				const stop_simulation_after_x_seconds = 60;
+				const stop_simulation_after_x_seconds = 60 * 5;
 				//const boid_count = 75; 
 				const boid_count = 100;
 
@@ -84,6 +89,10 @@
 					if (i < number_of_red_boids) {
 						color = "#66163a";
 					}
+
+					if (i == 0) {
+						color = "#043edb";
+					}
 					//boids.push(new Boid(new Vector(canvas.width / 2, canvas.height / 2), random_vector(), random_vector()));
 					boids.push(new Boid(new Vector(Math.random() * canvas.width, Math.random() * canvas.height), random_vector(), random_vector(), color));
 				}
@@ -91,8 +100,10 @@
 				var angle = 0; 
 				var interval_id = setInterval(function(){ 
 					context.clearRect(0, 0, canvas.width, canvas.height); 
+					var debug_first_boid = true; 
 					for (var boid of boids) {
-						boid.update(canvas.width, canvas.height, boids);
+						boid.update(canvas.width, canvas.height, boids, debug_first_boid);
+						debug_first_boid = false;
 					}
 
 					for (var boid of boids) {
