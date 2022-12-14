@@ -222,14 +222,22 @@ function draw_boid(canvas, x, y, rotation, scale, color) {
 
 	var boid_points = [];
 
+	var boid_raw_points = [
+		new Point(0.5, 0.0), /* Front Tip */
+		new Point(0.0, 1.0), /* Lower Left Point*/
+		new Point(0.5, 0.8), /* Middle Point*/
+		new Point(0.5, 0.0), /* Middle Line */
+		new Point(0.5, 0.8), /* Going Back to Middle Point */
+		new Point(0.5, 1.0), /* Middle line extended past midpoint */
+		new Point(0.5, 0.8), /* Going Back to Middle Point */
+		new Point(1.0, 1.0)  /* Lower Right Point*/
+	];
+
 	var center_point = scale_point(new Point(0.5, 0.5), scale); 
 
-	boid_points.push(rotate_point(scale_point(new Point(0.5, 0), scale), center_point, rotation));
-	boid_points.push(rotate_point(scale_point(new Point(0, 1), scale), center_point, rotation));
-	boid_points.push(rotate_point(scale_point(new Point(0.5, 0.8), scale), center_point, rotation));
-	boid_points.push(rotate_point(scale_point(new Point(0.5, 0.0), scale), center_point, rotation));
-	boid_points.push(rotate_point(scale_point(new Point(0.5, 0.8), scale), center_point, rotation));
-	boid_points.push(rotate_point(scale_point(new Point(1, 1), scale), center_point, rotation));
+	for (var point of boid_raw_points) {
+		boid_points.push(rotate_point(scale_point(point, scale), center_point, rotation))
+	}
 
 	draw_path(canvas, boid_points, x, y, scale, color);
 }
