@@ -118,6 +118,9 @@ body
 
 .homepage_links:hover {
 	font-size: 48px;
+
+	transition-property: font-size;
+  	transition-duration: 100ms;
 }
 
 .article_title {
