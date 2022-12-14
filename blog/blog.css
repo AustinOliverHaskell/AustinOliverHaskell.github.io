@@ -43,8 +43,8 @@ body
 	top: 0px;
 	left: 0px;
 
-	transition-property: border-width;
-  	transition-duration: 100ms;
+	transition-property: opacity;
+  	transition-duration: 400ms;
 }
 
 #background {
@@ -195,15 +195,15 @@ body
 #fullscreen_button {
 	position: absolute;
 
-	top: 10px;
-	right: 10px;
+	top: 30px;
+	right: 40px;
 
 }
 
 #exit_fullscreen_button {
 	position: absolute;
 
-	top: 20px;
+	top: 30px;
 	right: 40px;
 
   	opacity: 0;

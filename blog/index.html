@@ -10,19 +10,12 @@
 	</head>
 	<body class="fill_page">
 		<canvas id="background"></canvas>
+
 		<div id="main_content" class="fill_page">
 			<div id="name_title_desktop" class="desktop_only">Austin Haskell</div>
 			<div id="name_title_mobile" class="mobile_only">Austin Haskell</div>
 			<p class="subtitle">Software Engineer - Rust fanatic</p>
 			<p class="subtitle">I like to make things...</p>
-
-			<div class="material-symbols-outlined" id="fullscreen_button" onclick="fullscreen_mode()">
-				fullscreen
-			</div>
-
-			<div class="material-symbols-outlined" id="exit_fullscreen_button" onclick="fullscreen_mode()">
-				fullscreen_exit
-			</div>
 
 			<div id="links_section">
 				<a class="homepage_links" href="articles/index.html">Blog</a>
@@ -30,6 +23,14 @@
 				<a class="homepage_links" href="useful_links.html">Resume</a>
 				<a class="homepage_links" href="useful_links.html">Useful Links</a>
 			</div>
+		</div>
+
+		<div class="material-symbols-outlined" id="fullscreen_button" onclick="fullscreen_mode()">
+			fullscreen
+		</div>
+
+		<div class="material-symbols-outlined" id="exit_fullscreen_button" onclick="fullscreen_mode()">
+			fullscreen_exit
 		</div>
 		<script>
 
@@ -48,33 +49,13 @@
 				var exit_fullscreen_button = document.getElementById("exit_fullscreen_button");
 
 				if (in_fullscreen_mode) {
-					main_content.style["border-width"] = 8;
-					main_content.style.width  = "97vw";
-					main_content.style.height = "95vh";
-
-					title_desktop.style["opacity"] = 1;
-					title_mobile.style["opacity"] = 1;
-					links_section.style["opacity"] = 1;
-
-					for (var subtitle of subtitles) {
-						subtitle.style["opacity"] = 1;
-					}
+					main_content.style["opacity"] = 1;
 
 					fullscreen_button.style["opacity"] = 1;
 					exit_fullscreen_button.style["opacity"] = 0;
 
 				} else {
-					main_content.style["border-width"] = 0;
-					main_content.style.width  = "100vw";
-					main_content.style.height = "100vh";
-
-					title_desktop.style["opacity"] = 0;
-					title_mobile.style["opacity"] = 0;
-					links_section.style["opacity"] = 0;
-
-					for (var subtitle of subtitles) {
-						subtitle.style["opacity"] = 0;
-					}
+					main_content.style["opacity"] = 0;
 
 					exit_fullscreen_button.style["opacity"] = 1;
 					fullscreen_button.style["opacity"] = 0;
@@ -87,7 +68,8 @@
 
 				const time_between_simulation_ticks_in_ms = 50;
 				const stop_simulation_after_x_seconds = 60;
-				const boid_count = 75; 
+				//const boid_count = 75; 
+				const boid_count = 100;
 
 				var canvas = document.getElementById("background");
 				var context = canvas.getContext("2d"); 
@@ -96,8 +78,14 @@
 				canvas.width = window.outerWidth; 
 
 				var boids = [];
+				const number_of_red_boids = boid_count * 0.3;
 				for (var i = 0; i < boid_count; i++) {
-					boids.push(new Boid(new Vector(canvas.width / 2, canvas.height / 2), random_vector(), random_vector()));
+					var color = "#82776c"
+					if (i < number_of_red_boids) {
+						color = "#66163a";
+					}
+					//boids.push(new Boid(new Vector(canvas.width / 2, canvas.height / 2), random_vector(), random_vector()));
+					boids.push(new Boid(new Vector(Math.random() * canvas.width, Math.random() * canvas.height), random_vector(), random_vector(), color));
 				}
 
 				var angle = 0; 
@@ -108,7 +96,7 @@
 					}
 
 					for (var boid of boids) {
-						boid.draw(canvas, "#82776c")
+						boid.draw(canvas);
 					}
 				}, time_between_simulation_ticks_in_ms); 
 
