@@ -79,22 +79,16 @@ class Boid {
 	}
 
 	calculate_cohesion_of_flockmates(flockmates) {
-		var average_point = zero_vector();
+		var cohesion_vector = zero_vector();
 
 		if (flockmates.length == 0) {
-			return average_point;
+			return cohesion_vector;
 		}
 
 		for (var boid of flockmates) {
-			average_point = average_point.add(boid.position);
 		}
 
-		average_point.x = average_point.x / flockmates.length; 
-		average_point.y = average_point.y / flockmates.length;
-
-		average_point = average_point.subtract(this.position).clamp(max_force);
-
-		return average_point;
+		return cohesion_vector.clamp(max_force);
 	}
 
 	calculate_average_heading_vector_of_flockmates(flockmates) {
@@ -105,13 +99,9 @@ class Boid {
 		}
 
 		for (var boid of flockmates) {
-			average_heading = average_heading.add(boid.velocity);
 		}
 
-		average_heading.x = average_heading.x / flockmates.length;
-		average_heading.y = average_heading.y / flockmates.length;
-
-		return average_heading.subtract(this.velocity).clamp(max_velocity);
+		return average_heading.clamp(max_force);
 	}
 
 	calculate_avoidance_vector_of_flockmates(flockmates) {
@@ -122,18 +112,7 @@ class Boid {
 		}
 
 		for (var boid of flockmates) {
-			var distance_from_boid = this.position.distance_between(boid.position);
-
-			if ( distance_from_boid > avoidance_range) {
-				continue;
-			}
-
-			var difference_vector = this.position.subtract(boid.position);
-			avoidance_vector = avoidance_vector.add(difference_vector.divide_by_scalar(1 / distance_from_boid));
 		}
-
-		avoidance_vector = avoidance_vector.divide_by_scalar(flockmates.length);
-
 
 		return avoidance_vector.clamp(max_force);
 	}
