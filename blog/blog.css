@@ -20,7 +20,7 @@ body
 @font-face 
 {
 	font-family: main_font;
-	src: url('../fonts/Comfortaa/static/Comfortaa-Light.ttf');
+	src: url('../fonts/Source_Code_Pro/static/SourceCodePro-Regular.ttf');
 }
 
 #main_content {
@@ -42,6 +42,9 @@ body
 	position: relative;
 	top: 0px;
 	left: 0px;
+
+	transition-property: border-width;
+  	transition-duration: 100ms;
 }
 
 #background {
@@ -59,7 +62,10 @@ body
 	font-family: main_font;
 	color: #82776c;
 
-	font-size: 64px;
+	font-size: 48px;
+
+	transition-property: opacity;
+  	transition-duration: 100ms;
 }
 
 #name_title_desktop {
@@ -68,7 +74,10 @@ body
 	font-family: main_font;
 	color: #82776c;
 
-	font-size: 114px;
+	font-size: 72px;
+
+	transition-property: opacity;
+  	transition-duration: 100ms;
 }
 
 .subtitle {
@@ -181,4 +190,21 @@ body
 
 .article_column {
 	width: 70%;
+}
+
+#fullscreen_button {
+	position: absolute;
+
+	top: 10px;
+	right: 10px;
+
+}
+
+#exit_fullscreen_button {
+	position: absolute;
+
+	top: 20px;
+	right: 40px;
+
+  	opacity: 0;
 }

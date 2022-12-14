@@ -3,8 +3,10 @@
 		<title>Austin Haskell</title>
 		<link rel="stylesheet" type="text/css" href="blog.css">
 		<meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 		<script type="text/javascript" src="boids.js"></script>
+
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
 	</head>
 	<body class="fill_page">
 		<canvas id="background"></canvas>
@@ -13,6 +15,14 @@
 			<div id="name_title_mobile" class="mobile_only">Austin Haskell</div>
 			<p class="subtitle">Software Engineer - Rust fanatic</p>
 			<p class="subtitle">I like to make things...</p>
+
+			<div class="material-symbols-outlined" id="fullscreen_button" onclick="fullscreen_mode()">
+				fullscreen
+			</div>
+
+			<div class="material-symbols-outlined" id="exit_fullscreen_button" onclick="fullscreen_mode()">
+				fullscreen_exit
+			</div>
 
 			<div id="links_section">
 				<a class="homepage_links" href="articles/index.html">Blog</a>
@@ -24,6 +34,54 @@
 		<script>
 
 			document.addEventListener("DOMContentLoaded", draw_background());
+
+			var in_fullscreen_mode = false;
+
+			function fullscreen_mode() {
+				var main_content  = document.getElementById("main_content");
+				var title_desktop = document.getElementById("name_title_desktop");
+				var title_mobile  = document.getElementById("name_title_mobile");
+				var links_section = document.getElementById("links_section");
+				var subtitles     = document.getElementsByClassName("subtitle");
+
+				var fullscreen_button      = document.getElementById("fullscreen_button");
+				var exit_fullscreen_button = document.getElementById("exit_fullscreen_button");
+
+				if (in_fullscreen_mode) {
+					main_content.style["border-width"] = 8;
+					main_content.style.width  = "97vw";
+					main_content.style.height = "95vh";
+
+					title_desktop.style["opacity"] = 1;
+					title_mobile.style["opacity"] = 1;
+					links_section.style["opacity"] = 1;
+
+					for (var subtitle of subtitles) {
+						subtitle.style["opacity"] = 1;
+					}
+
+					fullscreen_button.style["opacity"] = 1;
+					exit_fullscreen_button.style["opacity"] = 0;
+
+				} else {
+					main_content.style["border-width"] = 0;
+					main_content.style.width  = "100vw";
+					main_content.style.height = "100vh";
+
+					title_desktop.style["opacity"] = 0;
+					title_mobile.style["opacity"] = 0;
+					links_section.style["opacity"] = 0;
+
+					for (var subtitle of subtitles) {
+						subtitle.style["opacity"] = 0;
+					}
+
+					exit_fullscreen_button.style["opacity"] = 1;
+					fullscreen_button.style["opacity"] = 0;
+				}
+
+				in_fullscreen_mode = !in_fullscreen_mode; 
+			}
 
 			function draw_background() {
 
