@@ -87,7 +87,7 @@
 
 				const time_between_simulation_ticks_in_ms = 50;
 				const stop_simulation_after_x_seconds = 60;
-				const boid_count = 50; 
+				const boid_count = 75; 
 
 				var canvas = document.getElementById("background");
 				var context = canvas.getContext("2d"); 
@@ -112,68 +112,10 @@
 					}
 				}, time_between_simulation_ticks_in_ms); 
 
-				// canvas.height = 400;
-				// canvas.width = 800; 
-
-				// var max_distance_from_line = 100;
-
-				// var line_start = { x: Math.random() * canvas.width, y: 0 };
-				// var line_end   = { x: Math.random() * canvas.width, y: canvas.height };
-
-				// var interval_id = setInterval(function(){ 
-
-				// 	context.clearRect(0, 0, canvas.width, canvas.height); 
-				// 	var shift_distance = Math.random() * 100;
-				// 	line_start.x += (Math.random() > 0.5 ? shift_distance : -shift_distance); 
-				// 	line_end.x += (Math.random() > 0.5 ? shift_distance : -shift_distance)
-				// 	draw_fuzz(canvas, context, line_start, line_end, max_distance_from_line);
-
-				// }, 250);
-
 				setTimeout(function() {
 					console.log("Stopping simulation");
 					clearInterval(interval_id)	
 				}, stop_simulation_after_x_seconds * 1000)
-
-			}
-
-			function draw_fuzz(canvas, context, line_start, line_end, max_distance_from_line) {
-
-				// var line_slope = (line_end.y - line_start.y) / (line_end.x - line_start.x); 
-
-				// context.fillStyle = "#82776c"; 
-				// for (var index = 0; index < 2000; index++) {
-
-				// 	var point = { 
-				// 		x: 0, 
-				// 		y: Math.floor(canvas.height - Math.random() * canvas.height)
-				// 	}
-
-				// 	point.x = get_x_pos_for_line_at_y(point.y, line_slope, line_start.x, line_start.y);
-				// 	point.x += (Math.random() > 0.5 ? Math.random() * max_distance_from_line : Math.random() * -max_distance_from_line ) 
-
-				// 	var line_x_pos = Math.floor(get_x_pos_for_line_at_y(point.y, line_slope, line_start.x, line_start.y)); 
-
-				// 	// The farther away from the line we are, the less likely we are to draw a point. 
-				// 	var delta_x = Math.abs(point.x - line_x_pos); 
-
-				// 	var inverse_normalized_x = 1 / (delta_x / canvas.width);
-
-				// 	var do_we_draw_this_point = inverse_normalized_x > (Math.random() * 100);
-				// 	if (do_we_draw_this_point)
-				// 		context.fillRect(point.x, point.y, 1, 1);
-				// } 
-			}
-
-			function get_x_pos_for_line_at_y(y, slope, line_start_x, line_start_y) {
-				// // y - y1 = m(x - x1)
-
-				// // y - y1
-				// var delta_y = y - line_start_y;
-				// // ( y - y1 ) / m
-				// var delta_y_over_slope = delta_y / slope;
-				// // ( ( y - y1 ) / m ) + x1 = x
-				// return delta_y_over_slope + line_start_x;
 			}
 
 		</script>

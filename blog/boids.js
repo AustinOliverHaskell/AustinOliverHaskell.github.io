@@ -1,6 +1,6 @@
 const max_velocity = 20;
-const max_acceleration = 20;
-const sight_range = 20;
+const max_acceleration = 1;
+const sight_range = 60;
 
 class Boid {
 	constructor(position, velocity, acceleration) {
@@ -16,19 +16,26 @@ class Boid {
 
 		var flockmates = this.look_for_flockmates(boid_list); 
 		var average_position_of_flockmates = this.calculate_average_position_of_flockmates(flockmates);
+		var average_heading_of_flockmates  = this.calculate_average_heading_of_flockmates(flockmates);
 
 		if (flockmates.length != 0)
-		{		
+		{	
 			this.acceleration.x = (average_position_of_flockmates.x - this.position.x);
 			this.acceleration.y = (average_position_of_flockmates.y - this.position.y);
 
 			if (this.acceleration.x > max_acceleration) {
 				this.acceleration.x = max_acceleration;
+			} else if (this.acceleration.x < -max_acceleration) {
+				this.acceleration.x = -max_acceleration;
 			}
 
 			if (this.acceleration.y > max_acceleration) {
 				this.acceleration.y = max_acceleration; 
+			} else if (this.acceleration.y < -max_acceleration) {
+				this.acceleration.y = -max_acceleration;
 			}
+
+			console.log("acceleration is " + this.acceleration.x + ", " + this.acceleration.y);
 		}
 
 		this.position = this.position.add(this.velocity);
@@ -50,6 +57,14 @@ class Boid {
 			this.position.y -= screen_height; 
 		}
 
+		if (this.position.x < 0) {
+			this.position.x += screen_width
+		}
+
+		if (this.position.y < 0) {
+			this.position.y += screen_height
+		}
+
 
 		this.rotation = (Math.atan2((this.velocity.y), (this.velocity.x)) - Math.atan2(1, 0)) - 3.14;
 	}
@@ -69,7 +84,11 @@ class Boid {
 	}
 
 	calculate_average_position_of_flockmates(flockmates) {
-		var average_point = new Point(0, 0);
+		var average_point = zero_vector();
+
+		if (flockmates.length == 0) {
+			return average_point;
+		}
 
 		for (var boid of flockmates) {
 			average_point.x += boid.position.x;
@@ -80,6 +99,26 @@ class Boid {
 		average_point.y = average_point.y / flockmates.length;
 
 		return average_point;
+	}
+
+	calculate_average_heading_of_flockmates(flockmates) {
+		var average_heading = zero_vector();
+
+		if (flockmates.length == 0) {
+			return average_heading;
+		}
+
+		for (var boid of flockmates) {
+			average_heading += boid.rotation;
+		}
+
+		average_heading= average_heading / flockmates.length;
+
+		return average_heading;
+	}
+
+	calculate_avoidance_of_flockmates(flockmates) {
+		
 	}
 
 	draw(canvas, color) {
@@ -110,6 +149,10 @@ class Vector {
 
 	distance_between(other_point) {
 		return Math.sqrt(Math.pow(other_point.x - this.x, 2) + Math.pow(other_point.y - this.y, 2));
+	}
+
+	rotate(angle) {
+		return new Vector(Math.abs(Math.cos(angle * this.x) - Math.sin(angle * this.y)), Math.abs(Math.sin(angle * this.x) + Math.cos(angle * this.y)));
 	}
 }
 
