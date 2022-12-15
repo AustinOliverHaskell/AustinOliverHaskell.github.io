@@ -9,12 +9,50 @@ body
   .desktop_only { 
     display: none; 
   } 
+
+  #main_content {
+	    height: 99vh;
+		width: 97vw; 
+
+		border-style: solid;
+		border-color: #82776c;
+		border-width: 8px;
+
+		margin: auto;
+
+		position: relative;
+		top: 0px;
+		left: 0px;
+
+		transition-property: opacity;
+	  	transition-duration: 400ms;
+	}
 }
 
 @media only screen and (min-width: 1026px) { 
   .mobile_only { 
     display: none; 
+
   } 
+
+  #main_content {
+	    height: 96vh;
+		width: 97vw; 
+
+		border-style: solid;
+		border-color: #82776c;
+		border-width: 8px;
+
+		margin-top: 1vh;
+		margin-left: 1vw;
+
+		position: relative;
+		top: 0px;
+		left: 0px;
+
+		transition-property: opacity;
+	  	transition-duration: 400ms;
+	}
 }
 
 @font-face 
@@ -23,29 +61,7 @@ body
 	src: url('../fonts/Source_Code_Pro/static/SourceCodePro-Regular.ttf');
 }
 
-#main_content {
-	height: 100%;
-	width: 100%; 
 
-	width: 97vw;
-	height: 95vh;
-
-	border-style: solid;
-	border-color: #82776c;
-	border-width: 8px;
-
-	margin-top: 1vh;
-	margin-bottom: 1vh;
-	margin-left: 1vw;
-	margin-right:1vw;
-
-	position: relative;
-	top: 0px;
-	left: 0px;
-
-	transition-property: opacity;
-  	transition-duration: 400ms;
-}
 
 #background {
 	width: 100%;
@@ -181,7 +197,7 @@ body
 	position: absolute;
 
 	top: 30px;
-	right: 40px;
+	right: 3vw;
 
 	color: #82776c;
 
@@ -191,7 +207,7 @@ body
 	position: absolute;
 
 	top: 30px;
-	right: 40px;
+	right: 3vw;
 
   	opacity: 0;
 
@@ -202,7 +218,7 @@ body
 	position: absolute;
 
 	top: 70px;
-	right: 40px;
+	right: 3vw;
 
 	color: #82776c;
 }
@@ -211,7 +227,7 @@ body
 	position: absolute;
 
 	top: 70px;
-	right: 40px;
+	right: 3vw;
 
 	opacity: 0;
 
@@ -222,7 +238,7 @@ body
 	position: absolute;
 
 	top: 110px;
-	right: 40px;
+	right: 3vw;
 
 	color: #82776c;
 }
