@@ -193,6 +193,11 @@ body
 	width: 70%;
 }
 
+.no_outline_button {
+	background: none;
+	border: none;
+}
+
 #fullscreen_button {
 	position: absolute;
 
@@ -214,11 +219,6 @@ body
 	color: #82776c;
 }
 
-.no_outline_button {
-	background: none;
-	border: none;
-}
-
 #pause_button {
 	position: absolute;
 
@@ -235,6 +235,15 @@ body
 	right: 40px;
 
 	opacity: 0;
+
+	color: #82776c;
+}
+
+#refresh_button {
+	position: absolute;
+
+	top: 110px;
+	right: 40px;
 
 	color: #82776c;
 }

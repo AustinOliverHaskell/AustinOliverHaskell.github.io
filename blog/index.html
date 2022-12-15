@@ -41,12 +41,17 @@
 			play_arrow
 		</button>
 
+		<button class="material-symbols-outlined no_outline_button" id="refresh_button" onclick="restart_simulation()">
+			refresh
+		</button>
+
 		<script>
 			const time_between_simulation_ticks_in_ms = 50;
 			const stop_simulation_after_x_seconds = 60 * 1;
 			const boid_count = 125;
 			var in_fullscreen_mode = false;
 			var simulation_running = true;
+			var boids = [];
 
 			document.addEventListener("DOMContentLoaded", main());
 
@@ -58,7 +63,7 @@
 				canvas.height = window.outerHeight;
 				canvas.width = window.outerWidth; 
 
-				let boids = create_simulation(canvas);
+				boids = create_simulation(canvas);
 
 				setInterval(function(){ 
 					step_simulation(canvas, context, boids);
@@ -72,6 +77,11 @@
 				document.getElementById("play_button").style["opacity"] = (simulation_running ? 0 : 1);
 			}
 
+			function restart_simulation() {
+				var canvas = document.getElementById("background");
+
+				boids = create_simulation(canvas);
+			}
 
 			function fullscreen_mode() {
 				var main_content  = document.getElementById("main_content");

@@ -2,7 +2,7 @@ const max_velocity = 5;
 const max_acceleration = 100;
 const sight_range = 100;
 
-const max_force = 0.25;
+const max_force = 0.5;
 
 class Boid {
 	constructor(position, velocity, acceleration, color) {
@@ -87,7 +87,7 @@ class Boid {
 			cohesion_vector = cohesion_vector.add(boid.position);
 		}
 
-		return cohesion_vector.divide_by_scalar(flockmates.length).subtract(this.position).subtract(this.velocity).clamp(max_force);
+		return cohesion_vector.divide_by_scalar(flockmates.length).subtract(this.position).subtract(this.velocity).clamp(max_force * 0.75);
 	}
 
 	calculate_average_heading_vector_of_flockmates(flockmates) {
