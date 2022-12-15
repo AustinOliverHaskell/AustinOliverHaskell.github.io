@@ -199,6 +199,8 @@ body
 	top: 30px;
 	right: 40px;
 
+	color: #82776c;
+
 }
 
 #exit_fullscreen_button {
@@ -208,9 +210,31 @@ body
 	right: 40px;
 
   	opacity: 0;
+
+	color: #82776c;
 }
 
 .no_outline_button {
 	background: none;
 	border: none;
+}
+
+#pause_button {
+	position: absolute;
+
+	top: 70px;
+	right: 40px;
+
+	color: #82776c;
+}
+
+#play_button {
+	position: absolute;
+
+	top: 70px;
+	right: 40px;
+
+	opacity: 0;
+
+	color: #82776c;
 }

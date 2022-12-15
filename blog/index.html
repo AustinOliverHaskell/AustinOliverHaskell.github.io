@@ -32,16 +32,46 @@
 		<button class="material-symbols-outlined no_outline_button" id="exit_fullscreen_button" onclick="fullscreen_mode()">
 			fullscreen_exit
 		</button>
+
+		<button class="material-symbols-outlined no_outline_button" id="pause_button" onclick="toggle_simulation()">
+			pause
+		</button>
+
+		<button class="material-symbols-outlined no_outline_button" id="play_button" onclick="toggle_simulation()">
+			play_arrow
+		</button>
+
 		<script>
+			const time_between_simulation_ticks_in_ms = 50;
+			const stop_simulation_after_x_seconds = 60 * 1;
+			const boid_count = 125;
+			var in_fullscreen_mode = false;
+			var simulation_running = true;
 
 			document.addEventListener("DOMContentLoaded", main());
 
 			function main() {
-				draw_background();
-				//fullscreen_mode();
+
+				var canvas = document.getElementById("background");
+				var context = canvas.getContext("2d"); 
+
+				canvas.height = window.outerHeight;
+				canvas.width = window.outerWidth; 
+
+				let boids = create_simulation(canvas);
+
+				setInterval(function(){ 
+					step_simulation(canvas, context, boids);
+				}, time_between_simulation_ticks_in_ms);
 			}
 
-			var in_fullscreen_mode = false;
+			function toggle_simulation() {
+				simulation_running = !simulation_running;
+
+				document.getElementById("pause_button").style["opacity"] = (simulation_running ? 1 : 0);
+				document.getElementById("play_button").style["opacity"] = (simulation_running ? 0 : 1);
+			}
+
 
 			function fullscreen_mode() {
 				var main_content  = document.getElementById("main_content");
@@ -69,19 +99,7 @@
 				in_fullscreen_mode = !in_fullscreen_mode; 
 			}
 
-			function draw_background() {
-
-				const time_between_simulation_ticks_in_ms = 50;
-				const stop_simulation_after_x_seconds = 60 * 1;
-				//const boid_count = 75; 
-				const boid_count = 125;
-
-				var canvas = document.getElementById("background");
-				var context = canvas.getContext("2d"); 
-
-				canvas.height = window.outerHeight;
-				canvas.width = window.outerWidth; 
-
+			function create_simulation(canvas) {
 				var boids = [];
 				const number_of_red_boids = boid_count * 0.3;
 				for (var i = 0; i < boid_count; i++) {
@@ -90,31 +108,23 @@
 						color = "#66163a";
 					}
 
-					// if (i == 0) {
-					// 	color = "#043edb";
-					// }
-					//boids.push(new Boid(new Vector(canvas.width / 2, canvas.height / 2), random_vector(), random_vector()));
 					boids.push(new Boid(new Vector(Math.random() * canvas.width, Math.random() * canvas.height), new Vector(Math.random() * 10, Math.random() * 10), random_vector(), color));
+				} 
+
+				return boids;
+			}
+
+			function step_simulation(canvas, context, boids) {
+				if (!simulation_running) return;
+
+				context.clearRect(0, 0, canvas.width, canvas.height); 
+				for (var boid of boids) {
+					boid.update(canvas.width, canvas.height, boids, false);
 				}
 
-				var angle = 0; 
-				var interval_id = setInterval(function(){ 
-					context.clearRect(0, 0, canvas.width, canvas.height); 
-					var debug_first_boid = false; 
-					for (var boid of boids) {
-						boid.update(canvas.width, canvas.height, boids, debug_first_boid);
-						debug_first_boid = false;
-					}
-
-					for (var boid of boids) {
-						boid.draw(canvas);
-					}
-				}, time_between_simulation_ticks_in_ms); 
-
-				setTimeout(function() {
-					console.log("Stopping simulation");
-					clearInterval(interval_id)	
-				}, stop_simulation_after_x_seconds * 1000)
+				for (var boid of boids) {
+					boid.draw(canvas);
+				}
 			}
 
 		</script>

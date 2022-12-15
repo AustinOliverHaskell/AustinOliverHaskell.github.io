@@ -1,7 +1,6 @@
 const max_velocity = 5;
 const max_acceleration = 100;
 const sight_range = 100;
-const avoidance_range = 60;
 
 const max_force = 0.25;
 
@@ -118,7 +117,7 @@ class Boid {
 			avoidance_vector = avoidance_vector.add(vector_away_from_other_boid);
 		}
 
-		return avoidance_vector.divide_by_scalar(flockmates.length).set_magnitude(max_velocity).subtract(this.velocity).clamp(max_force);
+		return avoidance_vector.divide_by_scalar(flockmates.length).set_magnitude(max_velocity).subtract(this.velocity).clamp(max_force	);
 	}
 
 	draw(canvas) {
