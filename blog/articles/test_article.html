@@ -1,13 +1,59 @@
 <html>
 	<head>
 		<title>Austin Haskell</title>
-		<link rel="stylesheet" type="text/css" href="../blog.css">
+		<link rel="stylesheet" type="text/css" href="articles.css">
 		<meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0">
 
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 	</head>
-	<body class="fill_page">
-		<p class="article_title">Testing a very long article title</p>
-		<hr class="article_hr"/>
+	<body>
+		<div id="main-content">
+			<p class="heading">Testing a very very long article title. And it's got multiple parts... Like alot of parts</p>
+
+			<pre class="snippet">
+calculate_avoidance_vector_of_flockmates(flockmates) {
+if (flockmates.length == 0) {
+	return zero_vector();
+}
+
+var avoidance_vector = zero_vector(); 
+for (var boid of flockmates) {
+	var distance_from_other_boid = this.position.distance_between(boid.position);
+	var vector_away_from_other_boid = 
+		this.position
+		.subtract(boid.position)
+		.divide_by_scalar(distance_from_other_boid * distance_from_other_boid);
+
+	avoidance_vector = avoidance_vector.add(vector_away_from_other_boid);
+}
+
+return avoidance_vector.divide_by_scalar(flockmates.length).set_magnitude(max_velocity).subtract(this.velocity).clamp(max_force	);
+}
+			</pre>
+
+			<p class="text-block"> 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tempus metus ut dapibus ultricies. Vestibulum luctus orci non neque porta, et tempor orci commodo. Nam porttitor diam eget dignissim venenatis. Nulla luctus, ligula quis eleifend molestie, dui est suscipit leo, a pellentesque justo nunc commodo tellus. Vestibulum iaculis dapibus orci nec auctor. Quisque eu tellus ut elit iaculis consequat non vitae urna. Sed eget egestas justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi porta erat eu facilisis commodo. Sed molestie ipsum nec urna viverra malesuada. Praesent efficitur lorem ac volutpat feugiat.
+
+Duis tincidunt cursus dui nec congue. Cras placerat enim sit amet purus blandit, quis blandit nunc scelerisque. Integer at elit bibendum, sodales quam ut, blandit risus. Pellentesque maximus arcu pellentesque auctor blandit. Fusce a pretium libero. Aenean elementum risus ut nulla tempor eleifend. Ut quis gravida nisi. Aliquam rhoncus leo justo, sed ullamcorper orci cursus id.
+			</p>
+
+			<p class="block-heading">A Demo</p>
+			<canvas class="demo"> </canvas>
+			<p class="block-note">Some small note or explanation of more <a href="">resources</a> that can be read after looking at the above item</p>
+
+			<p class="text-block"> 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tempus metus ut dapibus ultricies. Vestibulum luctus orci non neque porta, et tempor orci commodo. Nam porttitor diam eget dignissim venenatis. Nulla luctus, ligula quis eleifend molestie, dui est suscipit leo, a pellentesque justo nunc commodo tellus. Vestibulum iaculis dapibus orci nec auctor. Quisque eu tellus ut elit iaculis consequat non vitae urna. Sed eget egestas justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi porta erat eu facilisis commodo. Sed molestie ipsum nec urna viverra malesuada. Praesent efficitur lorem ac volutpat feugiat.
+
+Duis tincidunt cursus dui nec congue. Cras placerat enim sit amet purus blandit, quis blandit nunc scelerisque. Integer at elit bibendum, sodales quam ut, blandit risus. Pellentesque maximus arcu pellentesque auctor blandit. Fusce a pretium libero. Aenean elementum risus ut nulla tempor eleifend. Ut quis gravida nisi. Aliquam rhoncus leo justo, sed ullamcorper orci cursus id.
+			</p>
+
+			<hr class="break" />
+
+			<p class="sub-heading">Some sub heading</p>
+
+			<p class="quote">
+				"Fusce a pretium libero. Aenean elementum risus ut nulla tempor eleifend. Ut quis gravida nisi. Aliquam rhoncus leo justo, sed ullamcorper orci cursus id."
+			</p>
+
+		</div>
 	</body>
 </html>

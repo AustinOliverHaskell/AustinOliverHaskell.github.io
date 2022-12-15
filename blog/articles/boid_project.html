@@ -1,0 +1,86 @@
+<html>
+	<head>
+		<title>Austin Haskell</title>
+		<link rel="stylesheet" type="text/css" href="articles.css">
+		<meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0">
+
+		<script type="text/javascript" src="../boids.js"></script>
+
+	</head>
+	<body>
+		<div id="main-content">
+			<p class="heading">Making Boids - A Foray Into Javascript</p>
+
+			<hr class="break" />
+
+			<p class="block-heading">The Final Product</p>
+			<canvas class="demo" id="first-demo"> </canvas>
+			<p class="block-note">100 Boids in a flock</p>
+
+			<p class="text-block"> 
+				Programming can oftentimes be a magical thing. Seeing a bunch of numbers, functions, and obscure system calls culminate into something tangable is a feeling that only the few who become a software engineer can truely relate to. That feeling of seeing a screen full of odd syntax, colors, and indentation turn into something that even a non-engineer can understand and marvel at, is ( I think ) the reason that programmers come back time and time again to continue thier craft. One perfect example of this is the Boid simulation. 
+			</p>
+
+			<p class="text-block">
+				Boids are a system originally designed by <a href="http://www.red3d.com/cwr/index.html">Craig Reynolds</a> that aims to simuate a flock of birds, fish, locusts, etc. This system of 3 rules can simulate any group of animals moving together. If you're interested in reading his original works, see <a href="http://www.red3d.com/cwr/steer/">here</a>. 
+			</p>
+
+<!-- 			<p class="text-block">
+				As a primarily C++/Rust developer, JavaScript has always been one of those things that I can pop into at any point and get some simple things running, but I would never call myself a JavaScript developer. Writing this simulation was the first time I have seriously touched JavaScript in years, and I can understand why people like it. That being said, it's time for me to pile onto
+				the time old tradition of complaining about JavaScript. 
+			</p> -->
+		</div>
+
+
+
+				<script>
+			const time_between_simulation_ticks_in_ms = 50;
+			const boid_count = 100;
+			var boids = [];
+
+			document.addEventListener("DOMContentLoaded", main());
+
+			function main() {
+
+				var canvas = document.getElementById("first-demo");
+				var context = canvas.getContext("2d"); 
+
+				canvas.height = window.outerHeight;
+				canvas.width = window.outerWidth; 
+
+				boids = create_simulation(canvas);
+
+				setInterval(function(){ 
+					step_simulation(canvas, context, boids);
+				}, time_between_simulation_ticks_in_ms);
+			}
+
+			function create_simulation(canvas) {
+				var boids = [];
+				const number_of_red_boids = boid_count * 0.5;
+				for (var i = 0; i < boid_count; i++) {
+					var color = "#82776c"
+					if (i < number_of_red_boids) {
+						color = "#66163a";
+					}
+
+					boids.push(new Boid(new Vector(Math.random() * canvas.width, Math.random() * canvas.height), new Vector(Math.random() * 10, Math.random() * 10), random_vector(), color));
+				} 
+
+				return boids;
+			}
+
+			function step_simulation(canvas, context, boids) {
+				context.clearRect(0, 0, canvas.width, canvas.height); 
+				for (var boid of boids) {
+					boid.update(canvas.width, canvas.height, boids, false);
+				}
+
+				for (var boid of boids) {
+					boid.draw(canvas);
+				}
+			}
+
+		</script>
+	</body>
+</html>

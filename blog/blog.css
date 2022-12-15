@@ -133,26 +133,6 @@ body
   	transition-duration: 100ms;
 }
 
-.article_title {
-	padding-left: 20px;
-
-	font-family: main_font;
-	color: #82776c;
-
-	font-size: 48px;
-	text-align: center;
-
-	padding-top: 20px;
-	padding-bottom: 20px;
-}
-
-.article_hr {
-	color: #82776c;
-	border-color: #82776c;
-	width: 60%;
-	width: 60vw;
-}
-
 .article_link {
 	width: 100%;
 	color: #82776c;
@@ -163,8 +143,7 @@ body
 
 .article_link:hover {
 	width: 100%;
-	color: #82776c;
-	font-size: 32px;
+	color: #66163a;
 	text-decoration: none;
 	font-family: main_font;
 }
