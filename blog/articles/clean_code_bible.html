@@ -1,0 +1,83 @@
+<html>
+	<head>
+		<title>Austin Haskell</title>
+		<link rel="stylesheet" type="text/css" href="articles.css">
+		<meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0">
+
+		<script type="text/javascript" src="../boids.js"></script>
+
+	</head>
+	<body>
+		<!-- <canvas class="demo" id="background-boids"> </canvas> -->
+		<div id="main-content">
+			<p class="heading">The Clean Code Bible</p>
+
+			<hr class="break" />
+
+			<p class="text-block"> 
+				Every programmer will say that their code is clean, but what does that actually mean? When someone writes code how do you know that it's clean? Is it because it works? Because it has the proper spacing? Because of the comments?
+			</p>
+
+			<p class="text-block">
+				Clean code is: 
+			</p>
+
+			<ul>
+				<li>Understandable at a glance</li>
+				<li>Testable</li>
+			</ul>
+		</div>
+		
+
+
+				<script>
+			const time_between_simulation_ticks_in_ms = 50;
+			const boid_count = 8;
+			var boids = [];
+
+			document.addEventListener("DOMContentLoaded", main());
+
+			function main() {
+
+				var canvas = document.getElementById("background-boids");
+				var context = canvas.getContext("2d"); 
+
+				canvas.height = window.outerHeight;
+				canvas.width = window.outerWidth; 
+
+				boids = create_simulation(canvas);
+
+				setInterval(function(){ 
+					step_simulation(canvas, context, boids);
+				}, time_between_simulation_ticks_in_ms);
+			}
+
+			function create_simulation(canvas) {
+				var boids = [];
+				const number_of_red_boids = boid_count * 0.5;
+				for (var i = 0; i < boid_count; i++) {
+					var color = "#82776c"
+					if (i < number_of_red_boids) {
+						color = "#66163a";
+					}
+
+					boids.push(new Boid(new Vector(Math.random() * canvas.width, Math.random() * canvas.height), new Vector(Math.random() * 10, Math.random() * 10), random_vector(), color));
+				} 
+
+				return boids;
+			}
+
+			function step_simulation(canvas, context, boids) {
+				context.clearRect(0, 0, canvas.width, canvas.height); 
+				for (var boid of boids) {
+					boid.update(canvas.width, canvas.height, boids, false);
+				}
+
+				for (var boid of boids) {
+					boid.draw(canvas);
+				}
+			}
+
+		</script>
+	</body>
+</html>
