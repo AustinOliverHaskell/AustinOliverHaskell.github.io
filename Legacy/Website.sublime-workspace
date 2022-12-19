@@ -6798,7 +6798,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 98.0,
+		"height": 0.0,
 		"where_history":
 		[
 		]
@@ -6844,8 +6844,8 @@
 						"selection":
 						[
 							[
-								254,
-								254
+								422,
+								422
 							]
 						],
 						"settings":
