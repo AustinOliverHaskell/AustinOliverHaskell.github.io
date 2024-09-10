@@ -19,7 +19,7 @@ var base_tiles = [
 
     /* Tiles about the Debate */
     "Canidate dodges the question",
-    "Technical difficulties (Mic muted | lights go out | wrong camera shown | etc)",
+    "Technical difficulties (Mic muted improperly | lights go out | wrong camera shown | etc)",
     "The Debate itself is mentioned",
     "Canidate looks directly at camera",
     "Canidate leavs the debate early",
@@ -47,18 +47,25 @@ var base_tiles = [
     "Question about Immigration",
     "Question about Schools",
     "Question about Guns",
+    "Question about Gaza",
+    "Question about any middle eastern conflict",
 
     /* Tiles about Places */
     "China brought up unprompted",
     "Ukraine Mentioned",
     "Russia Mentioned", 
-    "Israel Mentioned",
-    "China Mentioned",
-    "Taiwan Mentioned",
-    "North Korea Mentioned",
     "US State mentioned by name",
     "US territory mentioned by name (Guam | Puerto Rico | etc)", 
-    "Foreign Leader mentioned by name",
+
+    /* Covid */
+    // "Covid data is misrepresented",
+    // "Covid death is mentioned",
+    // "Covid case count is mentioned",
+    // "'Vaccine' is said",
+    // "Masks are mentioned in a negative way",
+    // "Dr. Fauci mentioned",
+    // "Trump having Covid mentioned",
+    "Covid Mentioned",
 
     /* Race, Sexuality */
     "'White Supremacy'",
@@ -76,7 +83,7 @@ var base_tiles = [
     /* Misc */
     "Antifa mentioned",
     "'Fake News' network is mentioned by name",
-    "Namecalling (Sleepy Joe | Cryin' chuck | etc)",
+    "Namecalling (Sleepy Joe | Cryin' chuck | Comrade Kamala | etc)",
     "Trumps tax returns mentioned",
     "Trump's wall is mentioned",
     "You experiance sensory overload from them yelling",
@@ -129,6 +136,36 @@ var trump_vs_biden = [
     "Canidate stumbles over words",
     "Canidate stutters",
     "Joe Biden finishes a sentance with 'man', 'guy', 'buddy'",
+];
+
+var harris_vs_trump = [
+    "Harris' Job as DA mentioned",
+    "Trump gets called a Felon",
+    "Project 2025 mentioned",
+    "Canidate questions the other canidates mental competency",
+    "Trump says anything blatantly misoginistic",
+    "Trump questions Harris' race",
+    "Trump misnames Harris ('Kamabla', 'Obama', etc)",
+    "'Bidenomics'",
+    "Trump blames economy on liberal policy",
+    "Mention of grocery prices (Bonus if Trump mentions bacon)",
+    "Trump talks about turning kids trans",
+    "Housing Affordability mentioned",
+    "Child care mentioned (Cost, Parent Choice, Parental Leave, etc)",
+    "Trump age mentioned",
+    "Assasination attempt mentioned",
+    "Biden dropping out talked about / mentioned",
+    "'Why didn't you do this before' or similar phrasing",
+    "January 6th mentioned",
+    "'Lack of policy' mentioned",
+    "Any reproductive right mentioned (Abortion, IVF, Contraceptives, etc)",
+    "Any discussion of bringing back Manufacturing to the states",
+    "'American Steel' mentioned",
+    "'Drill baby, Drill'",
+    "Pause occours that's over 5 seconds long",
+    "Any previous debate mentioned",
+    "Moderator fact checks something in real time",
+    "Moderator does not fact check during the entire debate",
 ];
 
 var mandela_vs_johnson = [
