@@ -1,7 +1,7 @@
 var tiles = base_tiles;
 var displayed_tiles = [];
 var selected_tiles = [];
-var board_catagory = "trump_v_biden"; 
+var board_catagory = "harris_v_trump"; 
 
 /* Don't come for me for the quality of this code, I made it on the couch watching youtube. */
 
@@ -13,6 +13,8 @@ function shuffle() {
         tiles[i] = tiles[rand];
         tiles[rand] = tile;
     }
+
+    console.log(tiles);
 }
 
 function new_board() {
@@ -82,11 +84,11 @@ function swap_board_type(board_type) {
             tiles = base_tiles.concat(kamala_vs_pence);
             break;
         case "harris_v_trump":
-            tile = base_tiles.concat(harris_vs_trump);
+            tiles = base_tiles.concat(harris_vs_trump);
             break;
         case "trump_v_biden":
-        default: 
             tiles = base_tiles.concat(trump_vs_biden);
+            break;
     }
 
     board_catagory = board_type;
