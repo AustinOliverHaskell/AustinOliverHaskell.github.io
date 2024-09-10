@@ -121,6 +121,9 @@
             }
 
             function make_new_board() {
+                var board_type = document.getElementById("board_type").value;
+
+                swap_board_type(board_type);
                 new_board();
                 clear_selections();
                 update_table('bingo_board');

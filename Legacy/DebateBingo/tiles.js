@@ -3,7 +3,7 @@ var base_tiles = [
     "'Economy' mentioned in positive light",
     "'Economy' mentioned in negative light",
     "'Small town America'",
-    "Stimulus Package menntioned",
+    "Stimulus Package mentioned",
     "'Tax Cuts'",
     "Unemployment rates discussed",
     "Tariffs mentioned",
@@ -23,6 +23,7 @@ var base_tiles = [
     "The Debate itself is mentioned",
     "Canidate looks directly at camera",
     "Canidate leavs the debate early",
+    "Moderator stops canidate from speaking / cuts them off",
 
     /* Tiles about Religion */
     "Anything about the Christian Faith mentioned",
@@ -43,7 +44,7 @@ var base_tiles = [
     "Question about running mate",
     "Question about The Supreme Court",
     "Question about the Environment",
-    "Question about immigration",
+    "Question about Immigration",
     "Question about Schools",
     "Question about Guns",
 
@@ -51,17 +52,13 @@ var base_tiles = [
     "China brought up unprompted",
     "Ukraine Mentioned",
     "Russia Mentioned", 
-    "State mentioned by name",
+    "Israel Mentioned",
+    "China Mentioned",
+    "Taiwan Mentioned",
+    "North Korea Mentioned",
+    "US State mentioned by name",
     "US territory mentioned by name (Guam | Puerto Rico | etc)", 
-
-    /* Covid */
-    "Covid data is misrepresented",
-    "Covid death is mentioned",
-    "Covid case count is mentioned",
-    "'Vaccine' is said",
-    "Masks are mentioned in a negative way",
-    "Dr. Fauci mentioned",
-    "Trump having Covid mentioned",
+    "Foreign Leader mentioned by name",
 
     /* Race, Sexuality */
     "'White Supremacy'",
@@ -70,6 +67,11 @@ var base_tiles = [
     "'Defund the police'",
     "'Racism'",
     "Abortion access mentioned",
+    "'Critical Race Theory'",
+
+    /* Immigration / Foreign Policy */
+    "Any current war mentioned (Israel, Ukraine, etc)",
+    "Mention of pulling out of Afghanistan", 
 
     /* Misc */
     "Antifa mentioned",
@@ -78,10 +80,11 @@ var base_tiles = [
     "Trumps tax returns mentioned",
     "Trump's wall is mentioned",
     "You experiance sensory overload from them yelling",
-    "Social Media mentioned by name (Facebook | Twitter | etc)",
+    "Social Media mentioned by name (Facebook | X | etc)",
     "Election integrety mentioned",
     "Alt-right dog whisle",
-    "Any type of social media mentioned. (TikTok | Instagram | etc)"
+    "Any type of social media mentioned. (TikTok | Instagram | etc)",
+    "January 6th mentioned",
 ];
 
 
@@ -95,25 +98,37 @@ var kamala_vs_pence = [
 ];
 
 var trump_vs_biden = [
-    "Kenosha mentioned",
-    "Seattle mentioned",
-
     "Trump says 'Fake news'",
     "Biden says 'Fake news'",
     "Moderator fact checks either Trump or Biden during debate",
     "Biden goes over time",
     "Trump goes over time",
     "Trump brings up voter fraud",
-    "Steele Dossier is mentioned",
-    "Question is blatently favoring Trump",
-    "Question is blatently favoring Biden",
     "Stormy Daniels is mentioned",
     "Biden gaffes",
     "Biden's senate record gets brought up",
     "Any show that Trump has appeared in mentioned",
-    "Biden rides on Obama success",
-    "Trump questions mental fitness of Biden",
-    "Trump's COVID diagnosis mentioned"
+    "COVID mentioned by name",
+    "Canidate tells other to shut-up/be quiet/stop talking, etc",
+    "Canidates age is brought up",
+    "Canidate is called mentally unfit",
+    "Trumps VP pick is announced",
+    "Attack on Kamala",
+    "Voting block mentioned (Black, Queer, White, etc) by name",
+    "Trumps criminal charges mentioned",
+
+    "Inflation mentioned",
+    "Federal interest rates mentioned",
+    "Climate Change mentioned",
+    "Biden's Infrastrucure bill mentioned",
+    "'34 Counts'",
+    "Roe v Wade Overturned mentioned",
+    "Trumps abortion mentioned",
+    "Hunter Bidens criminal record mentioned",
+    "Trump makes a face (ex: Pursing Lips)",
+    "Canidate stumbles over words",
+    "Canidate stutters",
+    "Joe Biden finishes a sentance with 'man', 'guy', 'buddy'",
 ];
 
 var mandela_vs_johnson = [
