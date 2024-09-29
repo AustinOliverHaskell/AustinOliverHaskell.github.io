@@ -86,6 +86,9 @@ function swap_board_type(board_type) {
         case "harris_v_trump":
             tiles = base_tiles.concat(harris_vs_trump);
             break;
+        case "vance_v_walz":
+            tiles = base_tiles.concat(vance_vs_walz);
+            break;
         case "trump_v_biden":
             tiles = base_tiles.concat(trump_vs_biden);
             break;

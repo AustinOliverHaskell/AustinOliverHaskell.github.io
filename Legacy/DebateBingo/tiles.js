@@ -182,3 +182,27 @@ var fetterman_vs_oz = [
     "Oz being called out for just moving to PA",
     "'Pro-Murder' is said",
 ];
+
+var vance_vs_walz = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+];

@@ -1,3 +1,12 @@
+/*AD1115 RED*/
+/*850102 DARK RED*/
+/*1974D1 BLUE */
+/*000081 DARK BLUE*/
+
+body {
+    background-color: white;
+}
+
 #mobile_controls {
     display:none
 }
@@ -18,13 +27,18 @@
 
 table {
     border: 1px solid darkgray;
+    border:solid black 1px;
+    border-radius:6px;
+    background-color: white;
 }
 
 tr, td, th {
-    border: 1px solid lightgray;
+/*    border: 1px solid lightgray;*/
     text-align: center;
     font-family: 'Ubuntu';
     font-size: 12px;
+    background-color: #0f2d91;
+    border-radius:6px;
 
     /* if a user clicks rapidly we dont want the table contents to highlight */
     -webkit-user-select: none; /* Safari */        
@@ -35,23 +49,25 @@ tr, td, th {
 
 th {
     font-size: x-large;
-    background-color: dimgray;
-    color: white;
+    background-color: white;
+    color: black;
     width: 80px;
     height: 80px;
 }
 
 .unselected {
-    background-color: white;
+    background-color: #1974D1;
+    color: #white;
 }
 
 .selected {
-    background-color: black;
+    background-color: #000081;
     color: white;
 }
 
 #free_space {
-    background-color: #e7e7e7;
+    background-color: #AD1115;
+    color: white;
 }
 
 #board_container
@@ -92,8 +108,13 @@ button {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    border-radius:6px;  
+}
 
-
+button:hover {
+    background-color: #850102;
+    border-radius:12px;  
+    color: white;
 }
 
 input, label {
